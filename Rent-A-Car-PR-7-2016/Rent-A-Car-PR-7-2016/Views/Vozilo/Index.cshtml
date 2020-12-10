@@ -1,0 +1,51 @@
+﻿﻿@using Rent_A_Car_PR_7_2016.Models
+@model IEnumerable<Vozilo>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Prikaz svih manifestacija</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th colspan="2">Marka vozila</th>
+            <th colspan="2">Model vozila</th>
+            <th colspan="2">Tip vozila</th>
+            <th colspan="2">Broj mesta  u vozilu</th>
+            <th colspan="2">Datum kad je vozilo slobodno</th>
+            <th colspan="2">Cena po danu</th>
+            <th colspan="2">Status</th>
+            <th colspan="2">Mesto</th>
+            <th colspan="2">Poster</th>
+            <th colspan="2">Dodaj</th>
+        </tr>
+    </thead>
+    @foreach (Vozilo item in Model)
+    {
+        <tbody>
+            <tr>
+                <td colspan="2">@item.MarkaVozila</td>
+                <td colspan="2">@item.ModelVozila</td>
+                <td colspan="2">@item.TipVozila</td>
+                <td colspan="2">@item.BrojMestaUVozilu</td>
+                <td colspan="2">@item.DatumKadJeSlobodnoVozilo</td>
+                <td colspan="2">@item.CenaPoDanu</td>
+                <td colspan="2">@item.Status.ToString()</td>
+                <td colspan="2">@item.Mesto</td>
+                <td colspan="2">@item.Poster</td>
+                <td colspan="2">
+                    <form method="post" action="~/Cart/Add">
+                        <input type="text" name="voziloId" value="@item.Id" hidden />
+                        <input type="submit" value="Dodaj" />
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+
+    }
+
+</table>
+
+
