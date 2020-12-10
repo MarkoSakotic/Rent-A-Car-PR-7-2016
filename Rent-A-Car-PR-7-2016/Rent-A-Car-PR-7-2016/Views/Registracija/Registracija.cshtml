@@ -1,0 +1,65 @@
+﻿﻿@model  Rent_A_Car_PR_7_2016.Models.Korisnik
+
+@{
+    ViewBag.Title = "Registracija";
+}
+
+<h2>Registracija</h2>
+
+<div>
+    @ViewBag.Message
+</div>
+
+<form action="Register" method="post">
+    <table class="table">
+        <tr>
+            <td>Korisničko ime:</td>
+            <td><input type="text" name="korisnickoIme" /></td>
+        </tr>
+
+        <tr>
+            <td>Lozinka:</td>
+            <td><input type="password" name="loznika" /></td>
+        </tr>
+
+        <tr>
+            <td>Ime:</td>
+            <td><input type="text" name="ime" /></td>
+        </tr>
+        <tr>
+            <td>Prezime:</td>
+            <td><input type="text" name="prezime" /></td>
+        </tr>
+
+        <tr>
+            <td>Pol:</td>
+            <td>
+                <input list="polovi" name="pol" />
+                <datalist id="polovi">
+                    <option value="MUŠKI"></option>
+                    <option value="ŽENSKI"></option>
+                </datalist>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Datum rođenja:</td>
+            <td><input type="date" name="datumRodjenja" /></td>
+        </tr>
+
+        <tr>
+            <td>Uloga:</td>
+            <td>
+                <input list="uloge" name="uloga" />
+                <datalist id="uloge">
+                    <option value="KUPAC"></option>
+                </datalist>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Registracija" />
+            </td>
+        </tr>
+    </table>
+</form>
