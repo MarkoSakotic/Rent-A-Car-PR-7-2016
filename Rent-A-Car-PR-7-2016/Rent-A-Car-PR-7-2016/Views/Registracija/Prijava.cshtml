@@ -1,0 +1,29 @@
+﻿<h2 style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Times New Roman', Times, serif; font-style:italic; font-weight:500; color:darkblue">Prijava</h2>
+<div>
+    @ViewBag.Message
+</div>
+<body background="~/pozadina.jpg">
+    <br />
+    <br />
+    <br />
+    <form action="~/Registracija/Login" method="post">
+        <table style="background-color:aliceblue" align="center" class="table-striped" width="320" height="150">
+            <tr>
+                <td>Korisničko ime:</td>
+                <td><input type="text" name="korisnickoIme" /></td>
+            </tr>
+            <tr>
+                <td>Šifra:</td>
+                <td><input type="password" name="Lozinka" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="2">
+                    <input type="submit" class="btn btn-info" value="Prijava" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+
