@@ -5,47 +5,208 @@
     ViewBag.Title = "Home Page";
 }
 
-<h2>Prikaz svih manifestacija</h2>
+<body background="~/pozadina.jpg">
 
-<table class="table">
-    <thead>
+    <h2 style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Times New Roman', Times, serif; font-style:italic; font-weight:500; color:darkblue">Dobrodošli na sajt - Rent - A - Car </h2>
+    <br />
+    <br />
+    <h3 style="background-color:aliceblue">Pretrage</h3>
+    <div>
+        <table class="table table-striped">
+            <tr>
+                <th>Unesite naziv vozila:</th>
+                <th>Unesite mesto:</th>
+            </tr>
+            <tr>
+                <td>
+                    <form action="~/Vozilo/SearchByMarka">
+                        <input list="naziv" name="naziv" />
+                        <input type="submit" class="btn btn-info" value="Pretraga" />
+                    </form>
+                </td>
+                <td>
+                    <form action="~/Vozilo/SearchByMesto">
+                        <input list="mesto" name="mesto" />
+                        <input type="submit" class="btn btn-info" value="Pretraga" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <table class="table-striped">
+            <tr>
+                <th colspan="10">Unesite cenu od:</th>
+                <th colspan="10">Unesite cenu do:</th>
+            </tr>
+            <tr>
+                <td colspan="10">
+                    <form action="~/Vozilo/SearchByCena">
+                        <input type="number" name="cenaod" />
+                        <input type="submit" class="btn btn-info" value="Pretraga" />
+                    </form>
+                </td>
+                <td colspan="10">
+                    <form action="~/Vozilo/SearchByCenaDo">
+                        <input type="number" name="cenado" />
+                        <input type="submit" class="btn btn-info" value="Pretraga" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3 style="background-color:aliceblue">Filtriranje</h3>
+    <form action="~/Vozilo/FiltriranjeTipa" method="post">
+        <label>Tip vozila:</label>
+        <select name="tip">
+            <option value=""></option>
+            <option value="DZIP">DZIP</option>
+            <option value="KOMBI">KOMBI</option>
+            <option value="KARAVAN">KARAVAN</option>
+            <option value="STANDARD_GRADSKI">STANDARD GRADSKI</option>
+        </select>
+        &nbsp;&nbsp;
+        <input type="submit" class="btn btn-info" value="Filtriraj" />
+    </form>
+    <br />
+    <div>
+    </div>
+    <h3 style="background-color:aliceblue">Sortiranje po ceni</h3>
+    <form action="/Vozilo/Sortiraj" method="post">
+        <label>Nacin sortiranja: </label>
+        <select name="tipSortiranja">
+            <option value=""></option>
+            <option value="rastuce">RASTUCE</option>
+            <option value="opadajuce">OPADAJUCE</option>
+        </select>
+        <input type="submit" class="btn btn-info" value="Sortiraj" />
+    </form>
+    <div>
+    </div>
+    <br />
+
+    @if (Session["Korisnik"] != null)
+    {
+        Rent_A_Car_PR_7_2016.Models.Korisnik korisnik = (Rent_A_Car_PR_7_2016.Models.Korisnik)Session["Korisnik"];
+        if (korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.VLASNIK))
+        {
+            <form action="~/Vozilo/DodajNovoVozilo">
+                <input type="submit" class="btn btn-info" value="Dodaj novo vozilo" />
+            </form>
+
+
+        }
+    }
+    <br />
+    <!--TABELA VIDLJIVA KORISNICIMA, SAMO SA AKTIVNIM VOZILIMA-->
+    <table class="table table-striped">
         <tr>
             <th colspan="2">Marka vozila</th>
             <th colspan="2">Model vozila</th>
             <th colspan="2">Tip vozila</th>
             <th colspan="2">Broj mesta  u vozilu</th>
             <th colspan="2">Datum kad je vozilo slobodno</th>
-            <th colspan="2">Cena po danu</th>
-            <th colspan="2">Status</th>
-            <th colspan="2">Mesto</th>
+            <th colspan="2">Cena po danu [RSD]</th>
+            <th colspan="2">Ulica</th>
+            <th colspan="2">Broj</th>
+            <th colspan="2">Grad</th>
+            <th colspan="2">Postanski broj</th>
             <th colspan="2">Poster</th>
             <th colspan="2">Dodaj</th>
         </tr>
-    </thead>
-    @foreach (Vozilo item in Model)
-    {
-        <tbody>
-            <tr>
-                <td colspan="2">@item.MarkaVozila</td>
-                <td colspan="2">@item.ModelVozila</td>
-                <td colspan="2">@item.TipVozila</td>
-                <td colspan="2">@item.BrojMestaUVozilu</td>
-                <td colspan="2">@item.DatumKadJeSlobodnoVozilo</td>
-                <td colspan="2">@item.CenaPoDanu</td>
-                <td colspan="2">@item.Status.ToString()</td>
-                <td colspan="2">@item.Mesto</td>
-                <td colspan="2">@item.Poster</td>
-                <td colspan="2">
-                    <form method="post" action="~/Cart/Add">
-                        <input type="text" name="voziloId" value="@item.Id" hidden />
-                        <input type="submit" value="Dodaj" />
-                    </form>
-                </td>
-            </tr>
-        </tbody>
+        @foreach (Vozilo item in Model)
+        {
+            if (item.Obrisano == false && item.Aktivno == true)
+            {
+                <tbody>
+                    <tr>
+                        <td colspan="2">@item.MarkaVozila</td>
+                        <td colspan="2">@item.ModelVozila</td>
+                        <td colspan="2">@item.TipVozila</td>
+                        <td colspan="2">@item.BrojMestaUVozilu</td>
+                        <td colspan="2">@item.DatumKadJeSlobodnoVozilo</td>
+                        <td colspan="2">@item.CenaPoDanu</td>
+                        <td colspan="2">@item.Ulica</td>
+                        <td colspan="2">@item.Broj</td>
+                        <td colspan="2">@item.Mesto</td>
+                        <td colspan="2">@item.PostanskiBroj</td>
+                        <td colspan="2">@item.Poster</td>
+                        <td colspan="2">
+                            <form action="~/Vozilo/ProfilVozila" method="post">
+                                <input type="text" name="markaVozila" value="@item.MarkaVozila" hidden />
+                                <input type="submit" class="btn btn-info" value="Profil vozila" />
+                            </form>
 
+                        </td>
+                    </tr>
+                </tbody>
+            }
+
+        }
+    </table>
+
+    <br />
+    <br />
+    <br />
+    <!--TABELA VIDLJIVA SAMO ADMINU, U KOJOJ SE NALAZI I AKTIVNA I NEAKTIVNA VOZILA-->
+    @if (Session["Korisnik"] != null)
+    {
+        Rent_A_Car_PR_7_2016.Models.Korisnik korisnik = (Rent_A_Car_PR_7_2016.Models.Korisnik)Session["Korisnik"];
+        if (korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.ADMINISTRATOR))
+        {
+            <table class="table table-striped">
+                <tr>
+                    <
+                    <th colspan="2">Marka vozila</th>
+                    <th colspan="2">Model vozila</th>
+                    <th colspan="2">Tip vozila</th>
+                    <th colspan="2">Broj mesta  u vozilu</th>
+                    <th colspan="2">Datum kad je vozilo slobodno</th>
+                    <th colspan="2">Cena po danu [RSD]</th>
+                    <th colspan="2">Ulica</th>
+                    <th colspan="2">Broj</th>
+                    <th colspan="2">Grad</th>
+                    <th colspan="2">Postanski broj</th>
+                    <th colspan="2">Poster</th>
+                    <th colspan="2">Dodaj</th>
+                </tr>
+                @foreach (Vozilo item in Model)
+                {
+                    if (item.Obrisano == false && item.Aktivno == false)
+                    {
+                        <tbody>
+                            <tr>
+                                <td colspan="2">@item.MarkaVozila</td>
+                                <td colspan="2">@item.ModelVozila</td>
+                                <td colspan="2">@item.TipVozila</td>
+                                <td colspan="2">@item.BrojMestaUVozilu</td>
+                                <td colspan="2">@item.DatumKadJeSlobodnoVozilo</td>
+                                <td colspan="2">@item.CenaPoDanu</td>
+                                <td colspan="2">@item.Ulica</td>
+                                <td colspan="2">@item.Broj</td>
+                                <td colspan="2">@item.Mesto</td>
+                                <td colspan="2">@item.PostanskiBroj</td>
+                                <td colspan="2">@item.Poster</td>
+                                <td colspan="2">
+                                    <form action="~/Vozilo/ProfilVozila" method="post">
+                                        <input type="text" name="markaVozila" value="@item.MarkaVozila" hidden />
+                                        <input type="submit" class="btn btn-info" value="Profil vozila" />
+                                    </form>
+                                    <form action="~/Vozilo/ObrisiVozilo" method="post">
+                                        <input type="text" name="markaVozil" value="@item.MarkaVozila" hidden />
+                                        <input type="submit" class="btn btn-info" value="Izbrisi" />
+                                    </form>
+                                    <form action="~/Vozilo/StatusVozila" method="post">
+                                        <input type="text" name="markaVozi" value="@item.MarkaVozila" hidden />
+                                        <input type="submit" class="btn btn-info" value="Aktiviraj" />
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+
+                }
+            </table>
+        }
     }
 
-</table>
 
-
+</body>
