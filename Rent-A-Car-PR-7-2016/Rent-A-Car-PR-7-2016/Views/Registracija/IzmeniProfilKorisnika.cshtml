@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "IzmeniProfilKorisnika";
+}
+<body background="~/pozadina.jpg">
+    <h2 style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Times New Roman', Times, serif; font-style:italic; font-weight:500; color:darkblue">Izmena profila</h2>
+    <br />
+    <br />
+    <br />
+    <form action="~/Registracija/IzmeniProfilKorisnika" method="post">
+        <table style="background-color:aliceblue" align="center" class="table-striped" width="600" height="250">
+            <tr>
+                <th>Korisnicko ime</th>
+                <td><input type="text" name="KorisnickoIme" value="@ViewBag.korisnik.KorisnickoIme" /></td>
+            </tr>
+            <tr>
+                <th>Ime</th>
+                <td><input type="text" name="Ime" value="@ViewBag.korisnik.Ime" /></td>
+            </tr>
+            <tr>
+                <th>Prezime</th>
+                <td><input type="text" name="Prezime" value="@ViewBag.korisnik.Prezime" /></td>
+            </tr>
+            <tr>
+                <th>Datum rođenja</th>
+                <td><input type="date" name="DatumRodjenja" value="@ViewBag.korisnik.DatumRodjenja" /></td>
+            </tr>
+            <tr>
+                <th>Izmeni informacije</th>
+                <td>
+                    <input type="submit" class="btn btn-info" value="Izmeni" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>

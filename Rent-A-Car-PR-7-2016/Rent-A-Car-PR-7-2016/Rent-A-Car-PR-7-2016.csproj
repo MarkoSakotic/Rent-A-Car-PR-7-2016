@@ -185,6 +185,8 @@
     <Content Include="Views\Vozilo\ProfilVozila.cshtml" />
     <Content Include="Views\Vozilo\IzmeniVozilo.cshtml" />
     <Content Include="Views\Registracija\RegistracijaVlasnika.cshtml" />
+    <Content Include="Views\Registracija\ProfilKorisnika.cshtml" />
+    <Content Include="Views\Registracija\IzmeniProfilKorisnika.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

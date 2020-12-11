@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "ProfilKorisnika";
+}
+<body background="~/pozadina.jpg">
+    <h2 style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Times New Roman', Times, serif; font-style:italic; font-weight:500; color:darkblue">Profil korisnika - @ViewBag.korisnik.KorisnickoIme</h2>
+    <br />
+    <br />
+    <br />
+    <table style="background-color:aliceblue" align="center" class="table-striped" width="600" height="250">
+        <tr>
+            <th>Korisnicko ime</th>
+            <td>@ViewBag.korisnik.KorisnickoIme</td>
+        </tr>
+        <tr>
+            <th>Ime</th>
+            <td>@ViewBag.korisnik.Ime</td>
+        </tr>
+        <tr>
+            <th>Prezime</th>
+            <td>@ViewBag.korisnik.Prezime</td>
+        </tr>
+        <tr>
+            <th>Pol</th>
+            <td>@ViewBag.korisnik.Pol.ToString()</td>
+        </tr>
+        <tr>
+            <th>Datum rođenja</th>
+            <td>@ViewBag.korisnik.DatumRodjenja</td>
+        </tr>
+        <tr>
+            <th>Uloga</th>
+            <td>@ViewBag.korisnik.Uloga.ToString()</td>
+        </tr>
+        <tr>
+            <th>Izmeni informacije</th>
+            <td>
+                <form action="~/Registracija/IzmeniKorisnika" method="post">
+                    <input type="text" name="korisnickoIme" value="@ViewBag.korisnik.KorisnickoIme" hidden />
+                    <input type="submit" class="btn btn-info" value="Izmeni" />
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>

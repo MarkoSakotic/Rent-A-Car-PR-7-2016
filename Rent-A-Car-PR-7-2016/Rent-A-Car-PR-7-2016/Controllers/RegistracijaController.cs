@@ -147,6 +147,49 @@ namespace Rent_A_Car_PR_7_2016.Controllers
             return View("Kupci", kupci);
         }
 
+        public ActionResult ProfilKorisnika()
+        {
+            NapraviSesiju();
+            ViewBag.korisnik = podaci.TrenutniKorisnik;
+            return View("ProfilKorisnika");
+        }
+
+        public ActionResult IzmeniKorisnika(string korisnickoIme)
+        {
+            foreach (Korisnik k in Podaci.korisnici)
+            {
+                if (k.KorisnickoIme.Equals(korisnickoIme))
+                {
+                    ViewBag.korisnik = k;
+                    return View("IzmeniProfilKorisnika");
+                }
+
+            }
+            return View();
+        }
+
+        public ActionResult IzmeniProfilKorisnika(Korisnik korisnik)
+        {
+            Korisnik korisnikkk = new Korisnik();
+            foreach (Korisnik k in Podaci.korisnici)
+            {
+                if (k.KorisnickoIme.Equals(korisnik.KorisnickoIme))
+                {
+                    k.Ime = korisnik.Ime;
+                    k.Prezime = korisnik.Prezime;
+                    k.DatumRodjenja = korisnik.DatumRodjenja;
+                    korisnikkk = k;
+                }
+
+            }
+
+            Korisnik korisnikk = new Korisnik();
+            Podaci.SaveUser(korisnikk);
+            NapraviSesiju();
+            ViewBag.korisnik = korisnikkk;
+            return View("ProfilKorisnika", Podaci.korisnici);
+        }
+
 
         public ActionResult ObrisiKorisnika(string korisnickoIme)
         {
