@@ -131,6 +131,22 @@ namespace Rent_A_Car_PR_7_2016.Controllers
 
         }
 
+        public ActionResult ListaKupaca()
+        {
+            List<Korisnik> korisnici = (List<Korisnik>)HttpContext.Application["Korisnici"];
+            List<Korisnik> kupci = new List<Korisnik>();
+
+            foreach (Korisnik item in korisnici)
+            {
+                if (item.Uloga.Equals(UlogaKorisnika.KUPAC) || item.Uloga.Equals(UlogaKorisnika.VLASNIK))
+                {
+                    kupci.Add(item);
+                }
+            }
+            return View("Kupci", kupci);
+        }
+
+
         public ActionResult ObrisiKorisnika(string korisnickoIme)
         {
             //List<Korisnik> korisnici = (List<Korisnik>)HttpContext.Application["Korisnici"];
