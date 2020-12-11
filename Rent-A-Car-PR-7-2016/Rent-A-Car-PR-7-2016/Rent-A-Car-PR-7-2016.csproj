@@ -180,6 +180,7 @@
     <Content Include="Views\Registracija\Registracija.cshtml" />
     <Content Include="Views\Registracija\Prijava.cshtml" />
     <Content Include="Views\Vozilo\Index.cshtml" />
+    <Content Include="Views\Registracija\Kupci.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

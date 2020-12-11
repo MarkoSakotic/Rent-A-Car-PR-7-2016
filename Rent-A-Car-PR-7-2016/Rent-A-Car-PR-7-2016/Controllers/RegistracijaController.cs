@@ -52,6 +52,50 @@ namespace Rent_A_Car_PR_7_2016.Controllers
             return RedirectToAction("Prijava", "Registracija");
         }
 
+        public ActionResult RegisterVlasnika(Korisnik korisnik)
+        {
+            List<Korisnik> korisnici = (List<Korisnik>)HttpContext.Application["Korisnici"];
+
+            foreach (Korisnik item in korisnici)
+            {
+                if (item.KorisnickoIme == korisnik.KorisnickoIme)
+                {
+                    ViewBag.Message = $"Korisnik sa korisnickim imenom {korisnik.KorisnickoIme} vec postoji!";
+                    return View("RegistracijaProdavca");
+                }
+
+            }
+
+            if (korisnik.KorisnickoIme == null || korisnik.Loznika == null || korisnik.Ime == null || korisnik.Prezime == null || korisnik.DatumRodjenja == null)
+            {
+                ViewBag.Message = "Molimo Vas popunite sva polja!";
+                return View("RegistracijaVlasnika");
+            }
+
+            korisnici.Add(korisnik);
+            Podaci.SaveUser(korisnik);
+            Session["korisnik"] = korisnik;
+            return RedirectToAction("ListaKupaca", "Registracija");
+        }
+
+        [HttpPost]
+        public ActionResult Add(Korisnik korisnik)
+        {
+            List<Korisnik> korisnici = (List<Korisnik>)HttpContext.Application["Korisnici"];
+            if (korisnici.Contains(korisnik))
+            {
+                ViewBag.Message = $"Korisnik sa korisnickim imenom {korisnik.KorisnickoIme} vec postoji!";
+                return View();
+            }
+
+            korisnici.Add(korisnik);
+            Podaci.SaveUser(korisnik);
+            Session["korisnik"] = korisnik;
+            return RedirectToAction("Index", "Vozilo");
+
+
+        }
+
 
         [HttpPost]
         public ActionResult Login(string korisnickoIme, string lozinka)
@@ -87,6 +131,130 @@ namespace Rent_A_Car_PR_7_2016.Controllers
 
         }
 
+        public ActionResult ObrisiKorisnika(string korisnickoIme)
+        {
+            //List<Korisnik> korisnici = (List<Korisnik>)HttpContext.Application["Korisnici"];
+            //List<Korisnik> kkorisnici = korisnici.ToList();
+
+            foreach (Korisnik k in Podaci.korisnici)
+            {
+                if (k.KorisnickoIme.Equals(korisnickoIme))
+                {
+                    k.Obrisano = true;
+
+                }
+
+            }
+            Korisnik korisnik = new Korisnik();
+            //nadjem korisnika iz liste
+            //ovde ga ponovo upisi fajl podaci.save
+            Podaci.SaveUser(korisnik);
+            return View("Kupci", Podaci.korisnici);
+        }
+
+
+
+        //SEARCH
+        public ActionResult SearchByIme(string ime)
+        {
+            List<Korisnik> korisnici = (List<Korisnik>)HttpContext.Application["korisnici"];
+            List<Korisnik> nazivFilter = new List<Korisnik>();
+
+            if (ime.Equals(""))
+            {
+                ViewBag.korisnici = korisnici;
+                nazivFilter = korisnici;
+            }
+            else
+            {
+                foreach (var korisnik in korisnici)
+                {
+                    if (korisnik.Ime.ToString().Contains(ime))
+                    {
+                        nazivFilter.Add(korisnik);
+                    }
+                }
+                ViewBag.users = nazivFilter;
+            }
+
+            return View("~/Views/Registracija/Kupci.cshtml", nazivFilter);
+        }
+
+        public ActionResult SearchByPrezime(string prezime)
+        {
+            List<Korisnik> korisnici = (List<Korisnik>)HttpContext.Application["korisnici"];
+            List<Korisnik> nazivFilter = new List<Korisnik>();
+
+            if (prezime.Equals(""))
+            {
+                ViewBag.korisnici = korisnici;
+                nazivFilter = korisnici;
+            }
+            else
+            {
+                foreach (var korisnik in korisnici)
+                {
+                    if (korisnik.Prezime.ToString().Contains(prezime))
+                    {
+                        nazivFilter.Add(korisnik);
+                    }
+                }
+                ViewBag.users = nazivFilter;
+            }
+
+            return View("~/Views/Registracija/Kupci.cshtml", nazivFilter);
+        }
+
+        public ActionResult SearchByKorisnickoIme(string korisnickoime)
+        {
+            List<Korisnik> korisnici = (List<Korisnik>)HttpContext.Application["korisnici"];
+            List<Korisnik> nazivFilter = new List<Korisnik>();
+
+            if (korisnickoime.Equals(""))
+            {
+                ViewBag.korisnici = korisnici;
+                nazivFilter = korisnici;
+            }
+            else
+            {
+                foreach (var korisnik in korisnici)
+                {
+                    if (korisnik.KorisnickoIme.ToString().Contains(korisnickoime))
+                    {
+                        nazivFilter.Add(korisnik);
+                    }
+                }
+                ViewBag.users = nazivFilter;
+            }
+
+            return View("~/Views/Registracija/Kupci.cshtml", nazivFilter);
+        }
+
+
+        public ActionResult Filtriranje(string uloga)
+        {
+            List<Korisnik> korisnici = (List<Korisnik>)HttpContext.Application["korisnici"];
+            List<Korisnik> nazivFilter = new List<Korisnik>();
+
+            if (uloga.Equals(""))
+            {
+                ViewBag.korisnici = korisnici;
+                nazivFilter = korisnici;
+            }
+            else
+            {
+                foreach (var korisnik in korisnici)
+                {
+                    if (korisnik.Uloga.ToString().Equals(uloga))
+                    {
+                        nazivFilter.Add(korisnik);
+                    }
+                }
+                ViewBag.users = nazivFilter;
+            }
+
+            return View("~/Views/Registracija/Kupci.cshtml", nazivFilter);
+        }
 
 
         private void NapraviSesiju()
