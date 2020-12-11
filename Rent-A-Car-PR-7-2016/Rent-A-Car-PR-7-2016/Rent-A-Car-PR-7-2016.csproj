@@ -184,6 +184,7 @@
     <Content Include="Views\Vozilo\DodajNovoVozilo.cshtml" />
     <Content Include="Views\Vozilo\ProfilVozila.cshtml" />
     <Content Include="Views\Vozilo\IzmeniVozilo.cshtml" />
+    <Content Include="Views\Registracija\RegistracijaVlasnika.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

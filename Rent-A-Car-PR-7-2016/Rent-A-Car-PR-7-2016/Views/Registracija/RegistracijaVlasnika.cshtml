@@ -1,17 +1,16 @@
 ﻿﻿@model  Rent_A_Car_PR_7_2016.Models.Korisnik
-
 @{
-    ViewBag.Title = "Registracija";
+    ViewBag.Title = "RegistracijaVlasnika";
 }
 <body background="~/pozadina.jpg">
-    <h2 style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Times New Roman', Times, serif; font-style:italic; font-weight:500; color:darkblue">Registracija</h2>
+    <h2 style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine">Registracija vlasnika</h2>
     <div>
         @ViewBag.Message
     </div>
     <br />
     <br />
     <br />
-    <form action="Register" method="post">
+    <form action="RegisterVlasnika" method="post">
         <table style="background-color:aliceblue" align="center" class="table-striped" width="600" height="300">
             <tr>
                 <td>Korisničko ime:</td>
@@ -44,12 +43,12 @@
                 <td><input type="date" name="datumRodjenja" /></td>
             </tr>
             <tr>
-                <td>Uloga:</td>
+                <td>Uloga: </td>
                 <td>
-                    <input list="uloge" name="uloga" />
-                    <datalist id="uloge">
-                        <option value="KUPAC"></option>
-                    </datalist>
+                    <select name="Uloga">
+                        <option value=""></option>
+                        <option value="VLASNIK">VLASNIK</option>
+                    </select>
                 </td>
             </tr>
             <tr>
@@ -61,3 +60,5 @@
         </table>
     </form>
 </body>
+
+

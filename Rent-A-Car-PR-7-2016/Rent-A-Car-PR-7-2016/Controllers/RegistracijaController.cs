@@ -61,7 +61,7 @@ namespace Rent_A_Car_PR_7_2016.Controllers
                 if (item.KorisnickoIme == korisnik.KorisnickoIme)
                 {
                     ViewBag.Message = $"Korisnik sa korisnickim imenom {korisnik.KorisnickoIme} vec postoji!";
-                    return View("RegistracijaProdavca");
+                    return View("RegistracijaVlasnika");
                 }
 
             }
@@ -77,6 +77,7 @@ namespace Rent_A_Car_PR_7_2016.Controllers
             Session["korisnik"] = korisnik;
             return RedirectToAction("ListaKupaca", "Registracija");
         }
+
 
         [HttpPost]
         public ActionResult Add(Korisnik korisnik)
