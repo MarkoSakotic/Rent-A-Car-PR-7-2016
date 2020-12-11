@@ -183,6 +183,7 @@
     <Content Include="Views\Registracija\Kupci.cshtml" />
     <Content Include="Views\Vozilo\DodajNovoVozilo.cshtml" />
     <Content Include="Views\Vozilo\ProfilVozila.cshtml" />
+    <Content Include="Views\Vozilo\IzmeniVozilo.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

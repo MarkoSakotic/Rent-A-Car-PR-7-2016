@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "IzmeniVozilo";
+}
+
+<body background="~/pozadina.jpg">
+
+    <h2 style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Times New Roman', Times, serif; font-style:italic; font-weight:500; color:darkblue">Izmeni sadrzaj vozila</h2>
+    <br />
+    <br />
+    <br />
+
+    <form action="~/Vozilo/IzmeniProfilVozila" method="post">
+        <table style="background-color:aliceblue" align="center" class="table-striped" width="600" height="400">
+            <tr>
+                <th>Marka vozila</th>
+                <td><input type="text" name="MarkaVozila" value="@ViewBag.vozilo.MarkaVozila" /></td>
+            </tr>
+            <tr>
+                <th>Marka vozila</th>
+                <td><input type="text" name="ModelVozila" value="@ViewBag.vozilo.ModelVozila" /></td>
+            </tr>
+            <tr>
+                <th>Tip vozila</th>
+                <td><input type="text" name="TipVozila" value="@ViewBag.vozilo.TipVozila" /></td>
+            </tr>
+            <tr>
+                <th>Broj mesta</th>
+                <td><input type="number" name="BrojMestaUVozilu" value="@ViewBag.vozilo.BrojMestaUVozilu" /></td>
+            </tr>
+            <tr>
+                <th>Vreme odrzavanja</th>
+                <td><input type="date" name="DatumKadJeSlobodnoVozilo" value="@ViewBag.vozilo.DatumKadJeSlobodnoVozilo" /></td>
+            </tr>
+            <tr>
+                <th>Cena regular karta [RSD]</th>
+                <td><input type="number" name="CenaPoDanu" value="@ViewBag.vozilo.CenaPoDanu" /></td>
+            </tr>
+            <tr>
+                <th>Ulica</th>
+                <td><input type="text" name="Ulica" value="@ViewBag.vozilo.Ulica" /></td>
+            </tr>
+            <tr>
+                <th>Broj</th>
+                <td><input type="text" name="Broj" value="@ViewBag.vozilo.Broj" /></td>
+            </tr>
+            <tr>
+                <th>Mesto</th>
+                <td><input type="text" name="Mesto" value="@ViewBag.vozilo.Mesto" /></td>
+            </tr>
+            <tr>
+                <th>Postanski broj</th>
+                <td><input type="text" name="postanskiBroj" value="@ViewBag.vozilo.PostanskiBroj" /></td>
+            </tr>
+            <tr>
+                <th>Poster</th>
+                <td><input type="text" name="poster" value="@ViewBag.vozilo.Poster" /></td>
+            </tr>
+            <tr>
+                <th>Izmeni informacije</th>
+                <td>
+                    <input type="submit" class="btn btn-info" value="Izmeni" />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+

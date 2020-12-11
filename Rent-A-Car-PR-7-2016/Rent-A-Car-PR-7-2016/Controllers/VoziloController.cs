@@ -65,6 +65,49 @@ namespace Rent_A_Car_PR_7_2016.Controllers
             return View("ProfilVozila");
         }
 
+        public ActionResult ObrisiVozilo(string markaVozil)
+        {
+            //List<Korisnik> korisnici = (List<Korisnik>)HttpContext.Application["Korisnici"];
+            //List<Korisnik> kkorisnici = korisnici.ToList();
+
+            foreach (Vozilo k in Podaci.vozila)
+            {
+                if (k.MarkaVozila.Equals(markaVozil))
+                {
+                    k.Obrisano = true;
+
+                }
+
+            }
+            Vozilo vozi = new Vozilo();
+            //nadjem korisnika iz liste
+            //ovde ga ponovo upisi fajl podaci.save
+            Podaci.SaveVozila(vozi);
+            return View("Index", Podaci.vozila);
+        }
+
+        public ActionResult StatusVozila(string markaVozi)
+        {
+            //List<Korisnik> korisnici = (List<Korisnik>)HttpContext.Application["Korisnici"];
+            //List<Korisnik> kkorisnici = korisnici.ToList();
+
+            foreach (Vozilo k in Podaci.vozila)
+            {
+                if (k.MarkaVozila.Equals(markaVozi))
+                {
+                    k.Aktivno = true;
+
+                }
+
+            }
+            Vozilo vozil = new Vozilo();
+            //nadjem korisnika iz liste
+            //ovde ga ponovo upisi fajl podaci.save
+            Podaci.SaveVozila(vozil);
+            return View("Index", Podaci.vozila);
+        }
+
+
         public ActionResult IzmeniVozilo(string markaVozila)
         {
             foreach (Vozilo k in Podaci.vozila)
