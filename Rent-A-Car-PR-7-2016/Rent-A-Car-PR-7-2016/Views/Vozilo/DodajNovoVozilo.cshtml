@@ -1,0 +1,70 @@
+﻿﻿@model  Rent_A_Car_PR_7_2016.Models.Vozilo
+@{
+    ViewBag.Title = "DodajNovoVozilo";
+}
+<body background="~/pozadina.jpg">
+    <h2 style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine">Dodaj novo vozilo</h2>
+    <br />
+    <br />
+    <br />
+    <form action="DodajNovoVozilo" method="post">
+        <table style="background-color:aliceblue" align="center" class="table-striped" width="600" height="370">
+            <tr>
+                <td>Marka vozila:</td>
+                <td><input type="text" name="markaVozila" /></td>
+            </tr>
+            <tr>
+                <td>Model vozila:</td>
+                <td><input type="text" name="modelVozila" /></td>
+            </tr>
+            <tr>
+                <td>Tip vozila:</td>
+                <td><input type="text" name="tipVozila" /></td>
+            </tr>
+            <tr>
+                <td>Broj mesta u vozilu:</td>
+                <td><input type="number" name="brojMestaUVozilu" /></td>
+            </tr>
+            <tr>
+                <td>Datum kad je slobodno vozilo:</td>
+                <td><input type="datetime" name="datumKadJeSlobodnoVozilo" /></td>
+            </tr>
+            <tr>
+                <td>Cena po danu:</td>
+                <td><input type="number" name="cenaPoDanu" /></td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td><input type="text" name="status" /></td>
+            </tr>
+            <tr>
+                <td>Ulica:</td>
+                <td><input type="text" name="ulica" /></td>
+            </tr>
+            <tr>
+                <td>Broj:</td>
+                <td><input type="number" name="broj" /></td>
+            </tr>
+            <tr>
+                <td>Grad:</td>
+                <td><input type="text" name="mesto" /></td>
+            </tr>
+            <tr>
+                <td>Postanski broj:</td>
+                <td><input type="number" name="postanskiBroj" /></td>
+            </tr>
+            <tr>
+                <td>Poster:</td>
+                <td><input type="text" name="poster" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="2">
+                    <input type="submit" class="btn btn-info" value="Dodaj" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+

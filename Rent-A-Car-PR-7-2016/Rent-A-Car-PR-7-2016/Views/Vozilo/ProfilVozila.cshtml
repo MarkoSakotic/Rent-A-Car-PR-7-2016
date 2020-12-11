@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "ProfilVozila";
+}
+
+<body background="~/pozadina.jpg">
+
+    <h2 style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Times New Roman', Times, serif; font-style:italic; font-weight:500; color:darkblue">Profil vozila - @ViewBag.vozila.MarkaVozila</h2>
+
+    <br />
+    <br />
+    <br />
+
+    <table style="background-color:aliceblue" align="center" class="table-striped" width="600" height="370">
+        <tr>
+            <th>Marka vozila</th>
+            <td>@ViewBag.vozilo.MarkaVozila</td>
+        </tr>
+        <tr>
+            <th>Model vozila</th>
+            <td>@ViewBag.vozilo.ModelVozila</td>
+        </tr>
+        <tr>
+            <th>Tip vozila</th>
+            <td>@ViewBag.vozilo.TipVozila.ToString()</td>
+        </tr>
+        <tr>
+            <th>Broj mesta u vozilu</th>
+            <td>@ViewBag.vozilo.BrojMestaUVozilu</td>
+        </tr>
+        <tr>
+            <th>Datum kad je slobodno vozilo</th>
+            <td>@ViewBag.vozilo.DatumKadJeSlobodnoVozilo.ToString()</td>
+        </tr>
+        <tr>
+            <th>Datum rođenja</th>
+            <td>@ViewBag.vozilo.CenaPoDanu</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>@ViewBag.vozilo.Status.ToString()</td>
+        </tr>
+        <tr>
+            <th>Ulica</th>
+            <td>@ViewBag.vozilo.Ulica</td>
+        </tr>
+        <tr>
+            <th>Broj</th>
+            <td>@ViewBag.vozilo.Broj</td>
+        </tr>
+        <tr>
+            <th>Mesto</th>
+            <td>@ViewBag.vozilo.Mesto</td>
+        </tr>
+        <tr>
+            <th>Uloga</th>
+            <td>@ViewBag.vozilo.PostanskiBroj</td>
+        </tr>
+        <tr>
+            <th>Poster</th>
+            <td>@ViewBag.vozilo.Poster</td>
+        </tr>
+        <tr>
+            @if (Session["Korisnik"] != null)
+            {
+                Rent_A_Car_PR_7_2016.Models.Korisnik korisnik = (Rent_A_Car_PR_7_2016.Models.Korisnik)Session["Korisnik"];
+                if (korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.VLASNIK) || korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.ADMINISTRATOR))
+                {
+                    <th>Izmeni informacije</th>
+                    <td>
+                        <form action="~/Vozilo/IzmeniVozilo" method="post">
+                            <input type="text" name="markaVozila" value="@ViewBag.vozilo.MarkaVozila" hidden />
+                            <input type="submit" class="btn btn-info" value="Izmeni" />
+                        </form>
+                    </td>
+                }
+            }
+        </tr>
+    </table>
+
+</body>
+
+

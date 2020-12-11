@@ -21,6 +21,96 @@ namespace Rent_A_Car_PR_7_2016.Controllers
             return View(vozila);
         }
 
+        public ActionResult DodajNovoVozilo(Vozilo vozilo)
+        {
+            List<Vozilo> vozila = (List<Vozilo>)HttpContext.Application["Vozila"];
+
+            foreach (Vozilo item in vozila)
+            {
+                if (item.MarkaVozila == vozilo.MarkaVozila)
+                {
+                    ViewBag.Message = $"Vozilo sa tom markom {vozilo.MarkaVozila} vec postoji!";
+                    return View("DodajNovoVozilo");
+                }
+
+            }
+
+            if (vozilo.MarkaVozila == null || vozilo.ModelVozila == null || vozilo.TipVozila.ToString() == null || vozilo.BrojMestaUVozilu.ToString() == null || vozilo.DatumKadJeSlobodnoVozilo == null || vozilo.CenaPoDanu.ToString() == null || vozilo.Status.ToString() == null || vozilo.Ulica == null || vozilo.Broj.ToString() == null || vozilo.Mesto == null || vozilo.PostanskiBroj.ToString() == null || vozilo.Poster == null)
+            {
+                ViewBag.Message = "Molimo Vas popunite sva polja!";
+                return View("DodajNovoVozilo");
+            }
+
+            vozila.Add(vozilo);
+            Podaci.SaveVozila(vozilo);
+            Session["vozilo"] = vozilo;
+            return RedirectToAction("Index", "Vozilo");
+
+        }
+
+
+        public ActionResult ProfilVozila(string markaVozila)
+        {
+            NapraviSesiju();
+            foreach (Vozilo item in Podaci.vozila)
+            {
+                if (item.MarkaVozila == markaVozila)
+                {
+                    ViewBag.vozilo = item;
+                    break;
+
+                }
+            }
+
+            return View("ProfilVozila");
+        }
+
+        public ActionResult IzmeniVozilo(string markaVozila)
+        {
+            foreach (Vozilo k in Podaci.vozila)
+            {
+                if (k.MarkaVozila.Equals(markaVozila))
+                {
+                    ViewBag.vozilo = k;
+                    return View("IzmeniVozilo");
+                }
+
+            }
+            return View();
+        }
+
+        public ActionResult IzmeniProfilVozilo(Vozilo vozilo)
+        {
+            Vozilo vozilooo = new Vozilo();
+            foreach (Vozilo k in Podaci.vozila)
+            {
+                if (k.MarkaVozila.Equals(vozilo.MarkaVozila))
+                {
+                    k.MarkaVozila = vozilo.MarkaVozila;
+                    k.ModelVozila = vozilo.ModelVozila;
+                    k.TipVozila = vozilo.TipVozila;
+                    k.BrojMestaUVozilu = vozilo.BrojMestaUVozilu;
+                    k.DatumKadJeSlobodnoVozilo = vozilo.DatumKadJeSlobodnoVozilo;
+                    k.CenaPoDanu = vozilo.CenaPoDanu;
+                    k.Ulica = vozilo.Ulica;
+                    k.Broj = vozilo.Broj;
+                    k.Mesto = vozilo.Mesto;
+                    k.Poster = vozilo.Poster;
+                    vozilooo = k;
+                    break;
+                }
+
+            }
+
+            Vozilo voziloo = new Vozilo();
+            Podaci.SaveVozila(voziloo);
+            NapraviSesiju();
+            ViewBag.vozilo = vozilooo;
+            return View("ProfilVozila", Podaci.vozila);
+        }
+
+
+
         public ActionResult SearchByMarka(string marka)
         {
             List<Vozilo> vozila = (List<Vozilo>)HttpContext.Application["vozila"];
