@@ -1,33 +1,33 @@
-﻿<div>
-    @ViewBag.Message
-</div>
-<body background="~/pozadina.jpg">
+﻿<body background="~/Images/pozadinalogin.jpg" style="background-repeat:no-repeat; background-size:cover">
     <br />
     <br />
     <br />
     <form action="~/Registracija/Login" method="post">
         <div>
-            <table style="background-color:aliceblue; border-collapse:separate; border-spacing:0.85em" align="center" class="table-striped" width="320" height="200">
+            <table style="background-color:aliceblue; opacity:0.9; border-collapse:separate; border-spacing:0.85em" align="center" class="table-striped" width="320" height="200">
                 <tr>
-                    <td colspan="2"><img src="~/avatar.png" alt="Avatar" height="100" width="100" style="margin-left:75pt"></td>
+                    <td colspan="2"><img src="~/Images/avatar.png" alt="Avatar" height="100" width="100" style="margin-left:75pt"></td>
                     <td></td>
                 </tr>
-                <caption style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Times New Roman', Times, serif; font-style:italic; font-weight:500; color:darkblue; font-size:20pt">Prijava</caption>
+                <caption style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Comic Sans MS', Times, serif; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">Prijava</caption>
                 <tr>
-                    <td>Korisničko ime:</td>
-                    <td><input type="text" name="korisnickoIme" /></td>
+                    <td style="font-family:'Comic Sans MS';">Korisničko ime:</td>
+                    <td><input type="text" name="korisnickoIme" style="border-radius:9px; border-width:1px" /></td>
                 </tr>
                 <tr>
-                    <td>Šifra:</td>
-                    <td><input type="password" name="Lozinka" /></td>
+                    <td style="font-family:'Comic Sans MS'">Šifra:</td>
+                    <td><input type="password" name="Lozinka" style="border-radius:9px; border-width:1px" /></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td colspan="2">
-                        <input type="submit" class="btn btn-info" value="Prijava" />
+                        <input type="submit" class="btn btn-info" value="Prijava" style="border-radius:9px; width:100px" />
                     </td>
                 </tr>
             </table>
+            <div style="margin-left:407px; font-family:'Comic Sans MS'; background-color:lightcoral; width:327px; font-size:15px">
+                @ViewBag.Message
+            </div>
         </div>
     </form>
 </body>

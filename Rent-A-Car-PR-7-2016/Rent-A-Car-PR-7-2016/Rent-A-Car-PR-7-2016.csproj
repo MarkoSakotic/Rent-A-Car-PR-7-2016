@@ -142,7 +142,7 @@
     <Content Include="App_Data\korisnici.txt" />
     <Content Include="App_Data\vozila.txt" />
     <Content Include="avatar.jpg" />
-    <Content Include="avatar.png" />
+    <Content Include="Images\avatar.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -151,7 +151,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="pozadina.jpg" />
+    <Content Include="Images\pozadina.jpg" />
+    <Content Include="Images\pozadinalogin.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
