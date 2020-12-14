@@ -34,7 +34,7 @@ namespace Rent_A_Car_PR_7_2016.Controllers
             {
                 if (item.KorisnickoIme == korisnik.KorisnickoIme)
                 {
-                    ViewBag.Message = $"Korisnik sa korisnickim imenom {korisnik.KorisnickoIme} vec postoji!";
+                    ViewBag.Message = $"Korisnik sa korisničkim imenom {korisnik.KorisnickoIme} već postoji!";
                     return View("Registracija");
                 }
 
@@ -42,9 +42,23 @@ namespace Rent_A_Car_PR_7_2016.Controllers
 
             if (korisnik.KorisnickoIme == null || korisnik.Loznika == null || korisnik.Ime == null || korisnik.Prezime == null || korisnik.DatumRodjenja == null)
             {
-                ViewBag.Message = "Molimo Vas popunite sva polja!";
+                ViewBag.Message = "Niste popunili sva polja! Molimo Vas popunite sva polja!";
                 return View("Registracija");
             }
+
+            if (korisnik.KorisnickoIme.Length < 3)
+            {
+                ViewBag.Message = "Korisnicko ime mora imati bar 3 karaktera!";
+                return View("Registracija");
+            }
+
+
+            if (korisnik.Loznika.Length < 5)
+            {
+                ViewBag.Message = "Lozinka mora imati bar 5 karaktera!";
+                return View("Registracija");
+            }
+
 
             korisnici.Add(korisnik);
             Podaci.SaveUser(korisnik);
