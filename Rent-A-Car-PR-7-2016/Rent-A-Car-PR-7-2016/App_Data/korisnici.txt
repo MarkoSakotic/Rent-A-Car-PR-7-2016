@@ -1,8 +1,9 @@
-﻿admin;admin;Petarr;Petrovic;M;4.9.2020. 00:00:00;ADMINISTRATOR;False;
-pera;pera;Pera;Peric;M;19.8.1999. 00:00:00;KUPAC;True;
-mila;mila;Milica;Milicic;Z;23.11.1994. 00:00:00;KUPAC;True;
-perapera;pera;Pera;Peric;M;7.6.2006. 00:00:00;KUPAC;False;
-anna;ana;Ana;Ancic;M;9.2.2000. 00:00:00;KUPAC;False;
-abc;abc;Milan;Milanic;M;1.1.0001. 00:00:00;VLASNIK;False;
-adm;adm;Lena;Lenic;M;11.11.1999. 00:00:00;VLASNIK;True;
-sanja;sanja;Sanja;Sanjic;M;5.4.1995. 00:00:00;VLASNIK;True;
+admin;admin;Petar;Petrovic;M;3.4.2020. 00:00:00;GLAVNI_MENADZER;False;
+pera;pera;Pera;Peric;M;19.8.1999. 00:00:00;KLIJENT;True;
+mila;mila;Milica;Milicic;Z;23.11.1994. 00:00:00;KLIJENT;True;
+perapera;pera;Pera;Peric;M;7.6.2006. 00:00:00;KLIJENT;False;
+anna;ana;Ana;Ancic;M;9.2.2000. 00:00:00;KLIJENT;False;
+abc;abc;Milan;Milanic;M;1.1.0001. 00:00:00;MENADZER;True;
+adm;adm;Lena;Lenic;M;11.11.1999. 00:00:00;MENADZER;True;
+sanja;sanja;Sanja;Sanjic;M;5.4.1995. 00:00:00;MENADZER;True;
+ivanivan;ivan;Ivan;Ivkovicc;M;3.12.2020. 00:00:00;MENADZER;False;

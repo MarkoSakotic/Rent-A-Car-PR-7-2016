@@ -31,7 +31,7 @@
                         <li>@Html.ActionLink("Profil", "ProfilKorisnika", "Registracija")</li>
 
                         Rent_A_Car_PR_7_2016.Models.Korisnik korisnik = (Rent_A_Car_PR_7_2016.Models.Korisnik)Session["Korisnik"];
-                        if (korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.ADMINISTRATOR))
+                        if (korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.GLAVNI_MENADZER))
                         {
                             <li>@Html.ActionLink("Lista korisnika", "ListaKupaca", "Registracija")</li>
                         }

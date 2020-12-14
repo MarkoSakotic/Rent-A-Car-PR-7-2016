@@ -7,8 +7,8 @@ namespace Rent_A_Car_PR_7_2016.Models
 {
     public enum UlogaKorisnika
     {
-        ADMINISTRATOR,
-        VLASNIK,
-        KUPAC
+        GLAVNI_MENADZER,
+        MENADZER,
+        KLIJENT
     }
 }

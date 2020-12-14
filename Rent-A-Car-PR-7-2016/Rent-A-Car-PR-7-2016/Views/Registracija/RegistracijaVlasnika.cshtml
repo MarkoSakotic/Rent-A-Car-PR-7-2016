@@ -3,7 +3,7 @@
     ViewBag.Title = "RegistracijaVlasnika";
 }
 <body background="~/pozadina.jpg">
-    <h2 style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine">Registracija vlasnika</h2>
+    <h2 style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine">Registracija menadzera</h2>
     <div>
         @ViewBag.Message
     </div>
@@ -13,7 +13,11 @@
     <form action="RegisterVlasnika" method="post">
         <table style="background-color:aliceblue" align="center" class="table-striped" width="600" height="300">
             <tr>
-                <td>Korisničko ime:</td>
+                <td>
+                
+                
+                
+                čko ime:</td>
                 <td><input type="text" name="korisnickoIme" /></td>
             </tr>
             <tr>
@@ -47,7 +51,7 @@
                 <td>
                     <select name="Uloga">
                         <option value=""></option>
-                        <option value="VLASNIK">VLASNIK</option>
+                        <option value="MENADZER">MENADZER</option>
                     </select>
                 </td>
             </tr>

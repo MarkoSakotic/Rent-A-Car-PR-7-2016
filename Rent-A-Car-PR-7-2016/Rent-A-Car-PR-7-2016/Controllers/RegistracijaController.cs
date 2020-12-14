@@ -139,7 +139,7 @@ namespace Rent_A_Car_PR_7_2016.Controllers
 
             foreach (Korisnik item in korisnici)
             {
-                if (item.Uloga.Equals(UlogaKorisnika.KUPAC) || item.Uloga.Equals(UlogaKorisnika.VLASNIK))
+                if (item.Uloga.Equals(UlogaKorisnika.KLIJENT) || item.Uloga.Equals(UlogaKorisnika.MENADZER))
                 {
                     kupci.Add(item);
                 }

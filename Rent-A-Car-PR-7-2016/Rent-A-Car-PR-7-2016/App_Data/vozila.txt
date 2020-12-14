@@ -1,5 +1,6 @@
-﻿0;FIAT;PUNTO;STANDARD_GRADSKI;225;1.1.0001. 00:00:00;350;False;Zmaj Jovina;10;Novi Sad;21000;Poster;False;True;
+0;FIAT;PUNTO;STANDARD_GRADSKI;225;1.1.0001. 00:00:00;350;False;Zmaj Jovina;10;Novi Sad;21000;Poster;False;True;
 1;CITROEN;C3;STANDARD_GRADSKI;85;12.10.2020. 18:30:00;850;True;Pozorišni trg;1;Novi Sad;21000;Poster;False;True;
 2;BMW;X6;DZIP;85;2.11.2020. 20:00:00;900;True;Pozorišni trg;1;Novi Sad;21000;Poster;False;True;
-3;FORD;FOCUS;KARAVAN;105;1.1.0001. 00:00:00;1200;True;Stujeskaa;2;Novi Sad;21000;Poster;False;False;
+3;FORD;FOCUS;KARAVAN;105;1.1.0001. 00:00:00;1200;True;Stujeskaa;2;Novi Sad;21000;Poster;False;True;
 4;VW;CADADY;KOMBI;85;14.11.2020. 19:00:00;1600;True;Pozorišni trg;1;Novi Sad;21000;Poster;False;False;
+5;PEUGEOT;206;STANDARD_GRADSKI;5;2.2.2020. 00:00:00;1000;True;Mose Pijade;106;Novi Sad;21000;poster;False;False;
