@@ -8,7 +8,7 @@
 <body background="~/Images/pozadinalogin.jpg" style="background-repeat:no-repeat; background-size:cover">
 
     <div style="text-align:center; font-family:'Comic Sans MS', Times, serif; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">
-        <h2 style="background-color:aliceblue; height:35px">Dobrodošli na sajt Rent - A - Car servisa</h2>
+        <h2 style="background-color:aliceblue; height:35px; border-radius:9px; border-width:1px">Dobrodošli na sajt Rent - A - Car servisa</h2>
     </div>
     <br />
     <br />
@@ -25,14 +25,14 @@
             <tr>
                 <td>
                     <form action="~/Vozilo/SearchByMarka">
-                        <input list="marka" name="marka" style="border-radius:9px; border-width:1px"/>
-                        <input type="submit" class="btn btn-info" value="Pretraga" style="border-radius:9px; width:100px"/>
+                        <input list="marka" name="marka" style="border-radius:9px; border-width:1px" />
+                        <input type="submit" class="btn btn-info" value="Pretraga" style="border-radius:9px; width:100px" />
                     </form>
                 </td>
                 <td>
                     <form action="~/Vozilo/SearchByMesto">
-                        <input list="mesto" name="mesto" style="border-radius:9px; border-width:1px"/>
-                        <input type="submit" class="btn btn-info" value="Pretraga" style="border-radius:9px; width:100px"/>
+                        <input list="mesto" name="mesto" style="border-radius:9px; border-width:1px" />
+                        <input type="submit" class="btn btn-info" value="Pretraga" style="border-radius:9px; width:100px" />
                     </form>
                 </td>
             </tr>
@@ -45,13 +45,13 @@
             <tr>
                 <td colspan="10">
                     <form action="~/Vozilo/SearchByCena">
-                        <input type="number" name="cenaod" style="border-radius:9px; border-width:1px"/>
+                        <input type="number" name="cenaod" style="border-radius:9px; border-width:1px" />
                         <input type="submit" class="btn btn-info" value="Pretraga" style="border-radius:9px; width:100px" />
                     </form>
                 </td>
                 <td colspan="10">
                     <form action="~/Vozilo/SearchByCenaDo">
-                        <input type="number" name="cenado" style="border-radius:9px; border-width:1px"/>
+                        <input type="number" name="cenado" style="border-radius:9px; border-width:1px" />
                         <input type="submit" class="btn btn-info" value="Pretraga" style="border-radius:9px; width:100px" />
                     </form>
                 </td>
@@ -74,12 +74,11 @@
             <input type="submit" class="btn btn-info" value="Filtriraj" style="border-radius:9px; width:100px" />
         </form>
     </div>
-        <br />
-        <div>
-        </div>
-        <h3 style="background-color:aliceblue">Sortiranje po ceni</h3>
+    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3" style="border-radius:9px; width:170px">Kliknite za sortiranje</button>
+    <br />
+    <div class="collapse multi-collapse" id="multiCollapseExample3">
         <form action="/Vozilo/Sortiraj" method="post">
-            <label>Nacin sortiranja: </label>
+            <label style="background-color:aliceblue; width:160px; font-family:'Comic Sans MS', Times, serif;">Sortiranje po ceni: </label>
             <select name="tipSortiranja">
                 <option value=""></option>
                 <option value="rastuce">RASTUCE</option>
@@ -87,133 +86,134 @@
             </select>
             <input type="submit" class="btn btn-info" value="Sortiraj" />
         </form>
-        <div>
-        </div>
-        <br />
+    </div>
+    <div>
+    </div>
+    <br />
 
-        @if (Session["Korisnik"] != null)
+    @if (Session["Korisnik"] != null)
+    {
+        Rent_A_Car_PR_7_2016.Models.Korisnik korisnik = (Rent_A_Car_PR_7_2016.Models.Korisnik)Session["Korisnik"];
+        if (korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.MENADZER))
         {
-            Rent_A_Car_PR_7_2016.Models.Korisnik korisnik = (Rent_A_Car_PR_7_2016.Models.Korisnik)Session["Korisnik"];
-            if (korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.MENADZER))
-            {
-                <form action="~/Vozilo/DodajNovoVozilo">
-                    <input type="submit" class="btn btn-info" value="Dodaj novo vozilo" />
-                </form>
+            <form action="~/Vozilo/DodajNovoVozilo">
+                <input type="submit" class="btn btn-info" value="Dodaj novo vozilo" style="border-radius:9px; width:150px" />
+            </form>
 
 
-            }
         }
-        <br />
-        <!--TABELA VIDLJIVA KORISNICIMA, SAMO SA AKTIVNIM VOZILIMA-->
-        <table class="table table-striped" style="background-color:aliceblue; opacity:0.9; border-collapse:separate; border-spacing:0.85em; font-family:'Comic Sans MS', Times, serif;">
-            <tr>
-                <th colspan="2">Marka vozila</th>
-                <th colspan="2">Model vozila</th>
-                <th colspan="2">Tip vozila</th>
-                <th colspan="2">Broj mesta  u vozilu</th>
-                <th colspan="2">Datum kad je vozilo slobodno</th>
-                <th colspan="2">Cena po danu [RSD]</th>
-                <th colspan="2">Ulica</th>
-                <th colspan="2">Broj</th>
-                <th colspan="2">Grad</th>
-                <th colspan="2">Postanski broj</th>
-                <th colspan="2">Poster</th>
-                <th colspan="2">Dodaj</th>
-            </tr>
-            @foreach (Vozilo item in Model)
-            {
-                if (item.Obrisano == false && item.Aktivno == true)
-                {
-                    <tbody>
-                        <tr>
-                            <td colspan="2">@item.MarkaVozila</td>
-                            <td colspan="2">@item.ModelVozila</td>
-                            <td colspan="2">@item.TipVozila</td>
-                            <td colspan="2">@item.BrojMestaUVozilu</td>
-                            <td colspan="2">@item.DatumKadJeSlobodnoVozilo</td>
-                            <td colspan="2">@item.CenaPoDanu</td>
-                            <td colspan="2">@item.Ulica</td>
-                            <td colspan="2">@item.Broj</td>
-                            <td colspan="2">@item.Mesto</td>
-                            <td colspan="2">@item.PostanskiBroj</td>
-                            <td colspan="2">@item.Poster</td>
-                            <td colspan="2">
-                                <form action="~/Vozilo/ProfilVozila" method="post">
-                                    <input type="text" name="markaVozila" value="@item.MarkaVozila" hidden />
-                                    <input type="submit" class="btn btn-info" value="Profil vozila" style="border-radius:9px; width:100px"/>
-                                </form>
-
-                            </td>
-                        </tr>
-                    </tbody>
-                }
-
-            }
-        </table>
-
-        <br />
-        <br />
-        <br />
-        <!--TABELA VIDLJIVA SAMO ADMINU, U KOJOJ SE NALAZI I AKTIVNA I NEAKTIVNA VOZILA-->
-        @if (Session["Korisnik"] != null)
+    }
+    <br />
+    <!--TABELA VIDLJIVA KORISNICIMA, SAMO SA AKTIVNIM VOZILIMA-->
+    <table class="table table-striped" style="background-color:aliceblue; opacity:0.9; border-collapse:separate; border-spacing:0.85em; font-family:'Comic Sans MS', Times, serif;">
+        <tr>
+            <th colspan="2">Marka vozila</th>
+            <th colspan="2">Model vozila</th>
+            <th colspan="2">Tip vozila</th>
+            <th colspan="2">Broj mesta  u vozilu</th>
+            <th colspan="2">Datum kad je vozilo slobodno</th>
+            <th colspan="2">Cena po danu [RSD]</th>
+            <th colspan="2">Ulica</th>
+            <th colspan="2">Broj</th>
+            <th colspan="2">Grad</th>
+            <th colspan="2">Postanski broj</th>
+            <th colspan="2">Poster</th>
+            <th colspan="2">Dodaj</th>
+        </tr>
+        @foreach (Vozilo item in Model)
         {
-            Rent_A_Car_PR_7_2016.Models.Korisnik korisnik = (Rent_A_Car_PR_7_2016.Models.Korisnik)Session["Korisnik"];
-            if (korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.GLAVNI_MENADZER))
+            if (item.Obrisano == false && item.Aktivno == true)
             {
-                <table class="table table-striped" style="background-color:aliceblue; opacity:0.9; border-collapse:separate; border-spacing:0.85em; font-family:'Comic Sans MS', Times, serif;">
+                <tbody>
                     <tr>
-                        <th colspan="2">Marka vozila</th>
-                        <th colspan="2">Model vozila</th>
-                        <th colspan="2">Tip vozila</th>
-                        <th colspan="2">Broj mesta  u vozilu</th>
-                        <th colspan="2">Datum kad je vozilo slobodno</th>
-                        <th colspan="2">Cena po danu [RSD]</th>
-                        <th colspan="2">Ulica</th>
-                        <th colspan="2">Broj</th>
-                        <th colspan="2">Grad</th>
-                        <th colspan="2">Postanski broj</th>
-                        <th colspan="2">Poster</th>
-                        <th colspan="2">Dodaj</th>
-                    </tr>
-                    @foreach (Vozilo item in Model)
-                    {
-                        if (item.Obrisano == false && item.Aktivno == false)
-                        {
-                            <tbody>
-                                <tr>
-                                    <td colspan="2">@item.MarkaVozila</td>
-                                    <td colspan="2">@item.ModelVozila</td>
-                                    <td colspan="2">@item.TipVozila</td>
-                                    <td colspan="2">@item.BrojMestaUVozilu</td>
-                                    <td colspan="2">@item.DatumKadJeSlobodnoVozilo</td>
-                                    <td colspan="2">@item.CenaPoDanu</td>
-                                    <td colspan="2">@item.Ulica</td>
-                                    <td colspan="2">@item.Broj</td>
-                                    <td colspan="2">@item.Mesto</td>
-                                    <td colspan="2">@item.PostanskiBroj</td>
-                                    <td colspan="2">@item.Poster</td>
-                                    <td colspan="2">
-                                        <form action="~/Vozilo/ProfilVozila" method="post">
-                                            <input type="text" name="markaVozila" value="@item.MarkaVozila" hidden />
-                                            <input type="submit" class="btn btn-info" value="Profil vozila" style="border-radius:9px; width:100px"/>
-                                        </form>
-                                        <form action="~/Vozilo/ObrisiVozilo" method="post">
-                                            <input type="text" name="markaVozil" value="@item.MarkaVozila" hidden />
-                                            <input type="submit" class="btn btn-danger" value="Izbrisi" style="border-radius:9px; width:100px"/>
-                                        </form>
-                                        <form action="~/Vozilo/StatusVozila" method="post">
-                                            <input type="text" name="markaVozi" value="@item.MarkaVozila" hidden />
-                                            <input type="submit" class="btn btn-success" value="Aktiviraj" style="border-radius:9px; width:100px"/>
-                                        </form>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        }
+                        <td colspan="2">@item.MarkaVozila</td>
+                        <td colspan="2">@item.ModelVozila</td>
+                        <td colspan="2">@item.TipVozila</td>
+                        <td colspan="2">@item.BrojMestaUVozilu</td>
+                        <td colspan="2">@item.DatumKadJeSlobodnoVozilo</td>
+                        <td colspan="2">@item.CenaPoDanu</td>
+                        <td colspan="2">@item.Ulica</td>
+                        <td colspan="2">@item.Broj</td>
+                        <td colspan="2">@item.Mesto</td>
+                        <td colspan="2">@item.PostanskiBroj</td>
+                        <td colspan="2">@item.Poster</td>
+                        <td colspan="2">
+                            <form action="~/Vozilo/ProfilVozila" method="post">
+                                <input type="text" name="markaVozila" value="@item.MarkaVozila" hidden />
+                                <input type="submit" class="btn btn-info" value="Profil vozila" style="border-radius:9px; width:100px" />
+                            </form>
 
-                    }
-                </table>
+                        </td>
+                    </tr>
+                </tbody>
             }
+
         }
+    </table>
+
+    <br />
+    <br />
+    <br />
+    <!--TABELA VIDLJIVA SAMO ADMINU, U KOJOJ SE NALAZI I AKTIVNA I NEAKTIVNA VOZILA-->
+    @if (Session["Korisnik"] != null)
+    {
+        Rent_A_Car_PR_7_2016.Models.Korisnik korisnik = (Rent_A_Car_PR_7_2016.Models.Korisnik)Session["Korisnik"];
+        if (korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.GLAVNI_MENADZER))
+        {
+            <table class="table table-striped" style="background-color:aliceblue; opacity:0.9; border-collapse:separate; border-spacing:0.85em; font-family:'Comic Sans MS', Times, serif;">
+                <tr>
+                    <th colspan="2">Marka vozila</th>
+                    <th colspan="2">Model vozila</th>
+                    <th colspan="2">Tip vozila</th>
+                    <th colspan="2">Broj mesta  u vozilu</th>
+                    <th colspan="2">Datum kad je vozilo slobodno</th>
+                    <th colspan="2">Cena po danu [RSD]</th>
+                    <th colspan="2">Ulica</th>
+                    <th colspan="2">Broj</th>
+                    <th colspan="2">Grad</th>
+                    <th colspan="2">Postanski broj</th>
+                    <th colspan="2">Poster</th>
+                    <th colspan="2">Dodaj</th>
+                </tr>
+                @foreach (Vozilo item in Model)
+                {
+                    if (item.Obrisano == false && item.Aktivno == false)
+                    {
+                        <tbody>
+                            <tr>
+                                <td colspan="2">@item.MarkaVozila</td>
+                                <td colspan="2">@item.ModelVozila</td>
+                                <td colspan="2">@item.TipVozila</td>
+                                <td colspan="2">@item.BrojMestaUVozilu</td>
+                                <td colspan="2">@item.DatumKadJeSlobodnoVozilo</td>
+                                <td colspan="2">@item.CenaPoDanu</td>
+                                <td colspan="2">@item.Ulica</td>
+                                <td colspan="2">@item.Broj</td>
+                                <td colspan="2">@item.Mesto</td>
+                                <td colspan="2">@item.PostanskiBroj</td>
+                                <td colspan="2">@item.Poster</td>
+                                <td colspan="2">
+                                    <form action="~/Vozilo/ProfilVozila" method="post">
+                                        <input type="text" name="markaVozila" value="@item.MarkaVozila" hidden />
+                                        <input type="submit" class="btn btn-info" value="Profil vozila" style="border-radius:9px; width:100px" />
+                                    </form>
+                                    <form action="~/Vozilo/ObrisiVozilo" method="post">
+                                        <input type="text" name="markaVozil" value="@item.MarkaVozila" hidden />
+                                        <input type="submit" class="btn btn-danger" value="Izbrisi" style="border-radius:9px; width:100px" />
+                                    </form>
+                                    <form action="~/Vozilo/StatusVozila" method="post">
+                                        <input type="text" name="markaVozi" value="@item.MarkaVozila" hidden />
+                                        <input type="submit" class="btn btn-success" value="Aktiviraj" style="border-radius:9px; width:100px" />
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+
+                }
+            </table>
+        }
+    }
 
 
 </body>

@@ -2,15 +2,14 @@
     ViewBag.Title = "ProfilVozila";
 }
 
-<body background="~/Images/pozadina.jpg">
-
-    <h2 style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Times New Roman', Times, serif; font-style:italic; font-weight:500; color:darkblue">Profil vozila - @ViewBag.vozilo.MarkaVozila @ViewBag.vozilo.ModelVozila</h2>
+<body background="~/Images/pozadinalogin.jpg" style="background-repeat:no-repeat; background-size:cover">
 
     <br />
     <br />
     <br />
 
-    <table style="background-color:aliceblue" align="center" class="table-striped" width="600" height="370">
+    <table style="background-color:aliceblue; opacity:0.9; border-collapse:separate; border-spacing:0.85em; font-family:'Comic Sans MS'" align="center" class="table-striped" width="600" height="370">
+        <caption style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Comic Sans MS', Times, serif; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">Profil vozila - @ViewBag.vozilo.MarkaVozila @ViewBag.vozilo.ModelVozila</caption>
         <tr>
             <th>Marka vozila</th>
             <td>@ViewBag.vozilo.MarkaVozila</td>
@@ -69,7 +68,7 @@
                     <td>
                         <form action="~/Vozilo/IzmeniVozilo" method="post">
                             <input type="text" name="markaVozila" value="@ViewBag.vozilo.MarkaVozila" hidden />
-                            <input type="submit" class="btn btn-info" value="Izmeni" />
+                            <input type="submit" class="btn btn-info" value="Izmeni" style="border-radius:9px; width:100px" />
                         </form>
                     </td>
                 }

@@ -2,65 +2,65 @@
 @{
     ViewBag.Title = "DodajNovoVozilo";
 }
-<body background="~/Images/pozadina.jpg">
-    <h2 style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine">Dodaj novo vozilo</h2>
+<body background="~/Images/pozadinalogin.jpg" style="background-repeat:no-repeat; background-size:cover">
     <br />
     <br />
     <br />
     <form action="DodajNovoVozilo" method="post">
-        <table style="background-color:aliceblue" align="center" class="table-striped" width="600" height="370">
+        <table style="background-color:aliceblue; opacity:0.9; border-collapse:separate; border-spacing:0.85em; font-family:'Comic Sans MS'" align="center" class="table-striped" width="600" height="370">
+            <caption style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Comic Sans MS', Times, serif; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">Dodaj novo vozilo</caption>
             <tr>
                 <td>Marka vozila:</td>
-                <td><input type="text" name="markaVozila" /></td>
+                <td><input type="text" name="markaVozila" style="border-radius:9px; border-width:1px" /></td>
             </tr>
             <tr>
                 <td>Model vozila:</td>
-                <td><input type="text" name="modelVozila" /></td>
+                <td><input type="text" name="modelVozila" style="border-radius:9px; border-width:1px"/></td>
             </tr>
             <tr>
                 <td>Tip vozila:</td>
-                <td><input type="text" name="tipVozila" /></td>
+                <td><input type="text" name="tipVozila" style="border-radius:9px; border-width:1px"/></td>
             </tr>
             <tr>
                 <td>Broj mesta u vozilu:</td>
-                <td><input type="number" name="brojMestaUVozilu" /></td>
+                <td><input type="number" name="brojMestaUVozilu" style="border-radius:9px; border-width:1px"/></td>
             </tr>
             <tr>
                 <td>Datum kad je slobodno vozilo:</td>
-                <td><input type="datetime" name="datumKadJeSlobodnoVozilo" /></td>
+                <td><input type="datetime" name="datumKadJeSlobodnoVozilo" style="border-radius:9px; border-width:1px"/></td>
             </tr>
             <tr>
                 <td>Cena po danu:</td>
-                <td><input type="number" name="cenaPoDanu" /></td>
+                <td><input type="number" name="cenaPoDanu" style="border-radius:9px; border-width:1px"/></td>
             </tr>
             <tr>
                 <td>Status:</td>
-                <td><input type="text" name="status" /></td>
+                <td><input type="text" name="status" style="border-radius:9px; border-width:1px"/></td>
             </tr>
             <tr>
                 <td>Ulica:</td>
-                <td><input type="text" name="ulica" /></td>
+                <td><input type="text" name="ulica" style="border-radius:9px; border-width:1px"/></td>
             </tr>
             <tr>
                 <td>Broj:</td>
-                <td><input type="number" name="broj" /></td>
+                <td><input type="number" name="broj" style="border-radius:9px; border-width:1px"/></td>
             </tr>
             <tr>
                 <td>Grad:</td>
-                <td><input type="text" name="mesto" /></td>
+                <td><input type="text" name="mesto" style="border-radius:9px; border-width:1px"/></td>
             </tr>
             <tr>
                 <td>Postanski broj:</td>
-                <td><input type="number" name="postanskiBroj" /></td>
+                <td><input type="number" name="postanskiBroj" style="border-radius:9px; border-width:1px"/></td>
             </tr>
             <tr>
                 <td>Poster:</td>
-                <td><input type="text" name="poster" /></td>
+                <td><input type="text" name="poster" style="border-radius:9px; border-width:1px"/></td>
             </tr>
             <tr>
                 <td></td>
                 <td colspan="2">
-                    <input type="submit" class="btn btn-info" value="Dodaj" />
+                    <input type="submit" class="btn btn-info" value="Dodaj" style="border-radius:9px; width:100px" />
                 </td>
             </tr>
         </table>
