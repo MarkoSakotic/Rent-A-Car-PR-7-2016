@@ -5,44 +5,58 @@
     <br />
     <br />
     <br />
-    <table style="background-color:aliceblue; opacity:0.9; border-collapse:separate; border-spacing:0.85em"  align="center" class="table-striped" width="480" height="320">
-        <tr>
-            <td colspan="2"><img src="~/Images/avatar.png" alt="Avatar" height="100" width="100" style="margin-left:145pt"></td>
-            <td></td>
-        </tr>
-        <caption style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Comic Sans MS', Times, serif; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">Profil korisnika - @ViewBag.korisnik.KorisnickoIme</caption>
-        <tr>
-            <th style="font-family:'Comic Sans MS'">Korisnicko ime</th>
-            <td style="font-family:'Comic Sans MS'">@ViewBag.korisnik.KorisnickoIme</td>
-        </tr>
-        <tr>
-            <th style="font-family:'Comic Sans MS'">Ime</th>
-            <td style="font-family:'Comic Sans MS'">@ViewBag.korisnik.Ime</td>
-        </tr>
-        <tr>
-            <th style="font-family:'Comic Sans MS'">Prezime</th>
-            <td style="font-family:'Comic Sans MS'">@ViewBag.korisnik.Prezime</td>
-        </tr>
-        <tr>
-            <th style="font-family:'Comic Sans MS'">Pol</th>
-            <td style="font-family:'Comic Sans MS'">@ViewBag.korisnik.Pol.ToString()</td>
-        </tr>
-        <tr>
-            <th style="font-family:'Comic Sans MS'">Datum rođenja</th>
-            <td style="font-family:'Comic Sans MS'">@ViewBag.korisnik.DatumRodjenja</td>
-        </tr>
-        <tr>
-            <th style="font-family:'Comic Sans MS'">Uloga</th>
-            <td style="font-family:'Comic Sans MS'">@ViewBag.korisnik.Uloga.ToString()</td>
-        </tr>
-        <tr>
-            <th style="font-family:'Comic Sans MS'">Izmeni informacije</th>
-            <td style="font-family:'Comic Sans MS'">
-                <form action="~/Registracija/IzmeniKorisnika" method="post">
-                    <input type="text" name="korisnickoIme" value="@ViewBag.korisnik.KorisnickoIme" hidden />
-                    <input type="submit" class="btn btn-info" value="Izmeni" style="border-radius:9px; width:100px" />
-                </form>
-            </td>
-        </tr>
-    </table>
+    <table style="background-color:aliceblue; opacity:0.9; border-collapse:separate; border-spacing:0.85em" align="center" class="table-striped" width="480" height="320">
+        @if (Session["Korisnik"] != null)
+        {
+            Rent_A_Car_PR_7_2016.Models.Korisnik korisnik = (Rent_A_Car_PR_7_2016.Models.Korisnik)Session["Korisnik"];
+            if (korisnik.Pol.Equals(Rent_A_Car_PR_7_2016.Models.PolOsobe.M))
+            {
+                <tr>
+                    <td colspan="2"><img src="~/Images/avatar.png" alt="Avatar" height="100" width="100" style="margin-left:145pt"></td>
+                    <td></td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td colspan="2"><img src="~/Images/avatar2.png" alt="Avatar" height="100" width="100" style="margin-left:145pt"></td>
+                    <td></td>
+                </tr>
+            }
+        }
+                <caption style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Comic Sans MS', Times, serif; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">Profil korisnika - @ViewBag.korisnik.KorisnickoIme</caption>
+                <tr>
+                    <th style="font-family:'Comic Sans MS'">Korisnicko ime</th>
+                    <td style="font-family:'Comic Sans MS'">@ViewBag.korisnik.KorisnickoIme</td>
+                </tr>
+                <tr>
+                    <th style="font-family:'Comic Sans MS'">Ime</th>
+                    <td style="font-family:'Comic Sans MS'">@ViewBag.korisnik.Ime</td>
+                </tr>
+                <tr>
+                    <th style="font-family:'Comic Sans MS'">Prezime</th>
+                    <td style="font-family:'Comic Sans MS'">@ViewBag.korisnik.Prezime</td>
+                </tr>
+                <tr>
+                    <th style="font-family:'Comic Sans MS'">Pol</th>
+                    <td style="font-family:'Comic Sans MS'">@ViewBag.korisnik.Pol.ToString()</td>
+                </tr>
+                <tr>
+                    <th style="font-family:'Comic Sans MS'">Datum rođenja</th>
+                    <td style="font-family:'Comic Sans MS'">@ViewBag.korisnik.DatumRodjenja</td>
+                </tr>
+                <tr>
+                    <th style="font-family:'Comic Sans MS'">Uloga</th>
+                    <td style="font-family:'Comic Sans MS'">@ViewBag.korisnik.Uloga.ToString()</td>
+                </tr>
+                <tr>
+                    <th style="font-family:'Comic Sans MS'">Izmeni informacije</th>
+                    <td style="font-family:'Comic Sans MS'">
+                        <form action="~/Registracija/IzmeniKorisnika" method="post">
+                            <input type="text" name="korisnickoIme" value="@ViewBag.korisnik.KorisnickoIme" hidden />
+                            <input type="submit" class="btn btn-info" value="Izmeni" style="border-radius:9px; width:100px" />
+                        </form>
+                    </td>
+                </tr>
+            </table>
 </body>

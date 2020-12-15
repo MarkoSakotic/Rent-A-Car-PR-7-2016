@@ -151,6 +151,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\avatar2.png" />
     <Content Include="Images\pozadina.jpg" />
     <Content Include="Images\pozadinalogin.jpg" />
     <Content Include="Scripts\bootstrap.js" />

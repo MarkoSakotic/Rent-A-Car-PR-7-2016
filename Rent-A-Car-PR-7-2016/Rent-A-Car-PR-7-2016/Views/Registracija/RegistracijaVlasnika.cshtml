@@ -2,40 +2,33 @@
 @{
     ViewBag.Title = "RegistracijaVlasnika";
 }
-<body background="~/Images/pozadina.jpg">
-    <h2 style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine">Registracija menadzera</h2>
-    <div>
-        @ViewBag.Message
-    </div>
+<body background="~/Images/pozadinalogin.jpg" style="background-repeat:no-repeat; background-size:cover">
     <br />
     <br />
     <br />
     <form action="RegisterVlasnika" method="post">
-        <table style="background-color:aliceblue" align="center" class="table-striped" width="600" height="300">
+        <table style="background-color:aliceblue; opacity:0.9; border-collapse:separate; border-spacing:0.85em" align="center" class="table-striped" width="600" height="300">
+            <caption style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Comic Sans MS', Times, serif; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">Registracija menadzera</caption>
             <tr>
+                <td style="font-family:'Comic Sans MS'">Korisničko ime:</td>
+                <td><input type="text" name="korisnickoIme" style="border-radius:9px; border-width:1px" /></td>
+            </tr>
+            <tr>
+                <td style="font-family:'Comic Sans MS'">Lozinka:</td>
+                <td><input type="password" name="loznika" style="border-radius:9px; border-width:1px" /></td>
+            </tr>
+            <tr>
+                <td style="font-family:'Comic Sans MS'">Ime:</td>
+                <td><input type="text" name="ime" style="border-radius:9px; border-width:1px" /></td>
+            </tr>
+            <tr>
+                <td style="font-family:'Comic Sans MS'">Prezime:</td>
+                <td><input type="text" name="prezime" style="border-radius:9px; border-width:1px" /></td>
+            </tr>
+            <tr>
+                <td style="font-family:'Comic Sans MS'">Pol:</td>
                 <td>
-                
-                
-                
-                čko ime:</td>
-                <td><input type="text" name="korisnickoIme" /></td>
-            </tr>
-            <tr>
-                <td>Lozinka:</td>
-                <td><input type="password" name="loznika" /></td>
-            </tr>
-            <tr>
-                <td>Ime:</td>
-                <td><input type="text" name="ime" /></td>
-            </tr>
-            <tr>
-                <td>Prezime:</td>
-                <td><input type="text" name="prezime" /></td>
-            </tr>
-            <tr>
-                <td>Pol:</td>
-                <td>
-                    <input list="polovi" name="pol" />
+                    <input list="polovi" name="pol" style="border-radius:9px; border-width:1px" />
                     <datalist id="polovi">
                         <option value="MUŠKI"></option>
                         <option value="ŽENSKI"></option>
@@ -43,13 +36,13 @@
                 </td>
             </tr>
             <tr>
-                <td>Datum rođenja:</td>
-                <td><input type="date" name="datumRodjenja" /></td>
+                <td style="font-family:'Comic Sans MS'">Datum rođenja:</td>
+                <td><input type="date" name="datumRodjenja" style="border-radius:9px; border-width:1px" /></td>
             </tr>
             <tr>
-                <td>Uloga: </td>
+                <td style="font-family:'Comic Sans MS'">Uloga: </td>
                 <td>
-                    <select name="Uloga">
+                    <select name="Uloga" style="border-radius:9px; border-width:1px">
                         <option value=""></option>
                         <option value="MENADZER">MENADZER</option>
                     </select>
@@ -58,10 +51,15 @@
             <tr>
                 <td></td>
                 <td colspan="2">
-                    <input type="submit" class="btn btn-info" value="Registracija" />
+                    <input type="submit" class="btn btn-info" value="Registracija" style="border-radius:9px; width:170px" />
                 </td>
             </tr>
         </table>
+        <div style="margin-left:270px; font-family:'Comic Sans MS'; background-color:lightcoral; width:600px; font-size:16px">
+            <div>
+                @ViewBag.Message
+            </div>
+        </div>
     </form>
 </body>
 

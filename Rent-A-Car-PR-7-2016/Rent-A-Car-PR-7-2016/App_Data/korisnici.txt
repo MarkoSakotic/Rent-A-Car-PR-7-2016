@@ -7,5 +7,5 @@ abc;abccc;Milan;Milanic;M;1.1.0001. 00:00:00;MENADZER;True;
 adm;admin;Lena;Lenic;M;11.11.1999. 00:00:00;MENADZER;True;
 sanja;sanja;Sanja;Sanjic;M;5.4.1995. 00:00:00;MENADZER;True;
 ivanivan;ivann;Ivan;Ivkovicc;M;3.12.2020. 00:00:00;MENADZER;False;
-tea;teatea;Teodorra;Teodorovic;M;1.1.0001. 00:00:00;KLIJENT;False;
-lea;lealea;Leonora;Leic;M;17.12.2020. 00:00:00;KLIJENT;False;
+tea;teatea;Teodorra;Teodorovic;Z;1.1.0001. 00:00:00;KLIJENT;False;
+lea;lealea;Leonora;Leic;Z;17.12.2020. 00:00:00;KLIJENT;False;
