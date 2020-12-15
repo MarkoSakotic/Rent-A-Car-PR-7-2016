@@ -1,33 +1,33 @@
 ﻿@{
     ViewBag.Title = "IzmeniProfilKorisnika";
 }
-<body background="~/Images/pozadina.jpg">
-    <h2 style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Times New Roman', Times, serif; font-style:italic; font-weight:500; color:darkblue">Izmena profila</h2>
+<body background="~/Images/pozadinalogin.jpg" style="background-repeat:no-repeat; background-size:cover">
     <br />
     <br />
     <br />
     <form action="~/Registracija/IzmeniProfilKorisnika" method="post">
-        <table style="background-color:aliceblue" align="center" class="table-striped" width="600" height="250">
+        <table style="background-color:aliceblue; opacity:0.9; border-collapse:separate; border-spacing:0.85em; font-family:'Comic Sans MS'" align="center" class="table-striped" width="600" height="250">
+            <caption style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">Izmena profila korisnika</caption>
             <tr>
                 <th>Korisnicko ime</th>
-                <td><input type="text" name="KorisnickoIme" value="@ViewBag.korisnik.KorisnickoIme" /></td>
+                <td><input type="text" name="KorisnickoIme" value="@ViewBag.korisnik.KorisnickoIme" style="border-radius:9px; border-width:1px" /></td>
             </tr>
             <tr>
                 <th>Ime</th>
-                <td><input type="text" name="Ime" value="@ViewBag.korisnik.Ime" /></td>
+                <td><input type="text" name="Ime" value="@ViewBag.korisnik.Ime" style="border-radius:9px; border-width:1px" /></td>
             </tr>
             <tr>
                 <th>Prezime</th>
-                <td><input type="text" name="Prezime" value="@ViewBag.korisnik.Prezime" /></td>
+                <td><input type="text" name="Prezime" value="@ViewBag.korisnik.Prezime" style="border-radius:9px; border-width:1px" /></td>
             </tr>
             <tr>
                 <th>Datum rođenja</th>
-                <td><input type="date" name="DatumRodjenja" value="@ViewBag.korisnik.DatumRodjenja" /></td>
+                <td><input type="date" name="DatumRodjenja" value="@ViewBag.korisnik.DatumRodjenja" style="border-radius:9px; border-width:1px" /></td>
             </tr>
             <tr>
                 <th>Izmeni informacije</th>
                 <td>
-                    <input type="submit" class="btn btn-info" value="Izmeni" />
+                    <input type="submit" class="btn btn-info" value="Izmeni" style="border-radius:9px; width:100px" />
                 </td>
             </tr>
         </table>

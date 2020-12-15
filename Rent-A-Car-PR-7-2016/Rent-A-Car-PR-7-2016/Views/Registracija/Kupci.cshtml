@@ -5,58 +5,68 @@
 
                 ViewBag.Title = "Kupci";
 }
-<body background="~/Images/pozadina.jpg">
-    <div style="text-align:center">
-        <h2 style="background-color:aliceblue">Korisnici sistema</h2>
+<br />
+<br />
+<body background="~/Images/pozadinalogin.jpg" style="background-repeat:no-repeat; background-size:cover">
+    <div style="text-align:center; font-family:'Comic Sans MS', Times, serif; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">
+        <h3 style="background-color:aliceblue; height:30px">Registrovani klijenti veb-sajta</h3>
     </div>
-    <h3 style="background-color:aliceblue">Pretraga</h3>
-    <div>
-        <table class="table-striped">
-            <tr>
-                <th colspan="10">Unesite ime korisnika:</th>
-                <th colspan="10">Unesite prezime korisnika:</th>
-                <th colspan="10">Unesite korisničko ime korisnika:</th>
-            </tr>
-            <tr>
-                <td colspan="10">
-                    <form action="~/Registracija/SearchByIme">
-                        <input list="ime" name="ime" />
-                        <input type="submit" class="btn btn-info" value="Pretraga" />
-                    </form>
-                </td>
-                <td colspan="10">
-                    <form action="~/Registracija/SearchByPrezime">
-                        <input list="prezime" name="prezime" />
-                        <input type="submit" class="btn btn-info" value="Pretraga" />
-                    </form>
-                </td>
-                <td colspan="10">
-                    <form action="~/Registracija/SearchByKorisnickoIme">
-                        <input list="korisnickoime" name="korisnickoime" />
-                        <input type="submit" class="btn btn-info" value="Pretraga" />
-                    </form>
-                </td>
-            </tr>
-        </table>
+    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="border-radius:9px; width:170px">
+        Kliknite za pretrage
+    </button>
+    <div class="collapse" id="collapseExample">
+        <br />
+        <div>
+            <table class="table-striped" style="font-family:'Comic Sans MS', Times, serif">
+                <tr>
+                    <th colspan="10">Unesite ime korisnika:</th>
+                    <th colspan="10">Unesite prezime korisnika:</th>
+                    <th colspan="10">Unesite korisničko ime korisnika:</th>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <form action="~/Registracija/SearchByIme">
+                            <input list="ime" name="ime" style="border-radius:9px; border-width:1px" />
+                            <input type="submit" class="btn btn-info" value="Pretraga" style="border-radius:9px; width:100px" />
+                        </form>
+                    </td>
+                    <td colspan="10">
+                        <form action="~/Registracija/SearchByPrezime">
+                            <input list="prezime" name="prezime" style="border-radius:9px; border-width:1px" />
+                            <input type="submit" class="btn btn-info" value="Pretraga" style="border-radius:9px; width:100px" />
+                        </form>
+                    </td>
+                    <td colspan="10">
+                        <form action="~/Registracija/SearchByKorisnickoIme">
+                            <input list="korisnickoime" name="korisnickoime" style="border-radius:9px; border-width:1px" />
+                            <input type="submit" class="btn btn-info" value="Pretraga" style="border-radius:9px; width:100px" />
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
     <br />
-    <h3 style="background-color:aliceblue">Filtriranje</h3>
-    <form action="~/Registracija/Filtriranje" method="post">
-        <label>Uloga:</label>
-        <select name="uloga">
-            <option value=""></option>
-            <option value="GLAVNI_MENADZER">GLAVNI MENADZER</option>
-            <option value="MENADZER">MENADZER</option>
-            <option value="KLIJENT">KLIJENT</option>
-        </select>
-        &nbsp;&nbsp;
-        <input type="submit" class="btn btn-info" value="Filtriraj" />
-    </form>
+    <br />
+    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" style="border-radius:9px; width:170px">Kliknite za filtriranje</button>
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+        <form action="~/Registracija/Filtriranje" method="post">
+            <label style="background-color:aliceblue; width:60px; font-family:'Comic Sans MS', Times, serif;">Uloga:</label>
+            <select name="uloga" style="border-radius:9px; border-width:1px">
+                <option value=""></option>
+                <option value="GLAVNI_MENADZER">GLAVNI MENADZER</option>
+                <option value="MENADZER">MENADZER</option>
+                <option value="KLIJENT">KLIJENT</option>
+            </select>
+            &nbsp;&nbsp;
+            <input type="submit" class="btn btn-info" value="Filtriraj" style="border-radius:9px; width:100px" />
+        </form>
+    </div>
     <br />
 
     <br />
     <br />
-    <table class="table table-striped">
+    <table class="table table-striped" style="background-color:aliceblue; opacity:0.9; border-collapse:separate; border-spacing:0.85em; font-family:'Comic Sans MS', Times, serif;">
         <tr>
             <th colspan="2"> Korisnicko ime</th>
             <th colspan="2"> Ime</th>
@@ -81,7 +91,7 @@
                         <td colspan="2">
                             <form action="~/Registracija/ObrisiKorisnika" method="post">
                                 <input type="text" name="korisnickoIme" value="@item.KorisnickoIme" hidden />
-                                <input type="submit" class="btn btn-info" value="Izbrisi" />
+                                <input type="submit" class="btn btn-danger" value="Izbriši korisnika" style="border-radius:9px; width:127px" />
                             </form>
                         </td>
                     </tr>
@@ -89,9 +99,9 @@
             }
         }
     </table>
-    <h3 style="background-color:aliceblue">Registruj menadzera</h3>
+    <h3 style="background-color:aliceblue; font-family:'Comic Sans MS', Times, serif;  opacity:0.7; font-weight:500; color:darkblue; width:255px; height:30px">Registruj menadzera:</h3>
     <form action="~/Registracija/RegisterVlasnika" method="post">
-        <input type="submit" class="btn btn-info" value="Registruj" />
+        <input type="submit" class="btn btn-info" value="Registruj" style="border-radius:9px; width:100px" />
     </form>
 </body>
 
