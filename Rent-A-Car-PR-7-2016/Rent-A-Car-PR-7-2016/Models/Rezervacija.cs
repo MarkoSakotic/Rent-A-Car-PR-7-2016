@@ -10,13 +10,28 @@ namespace Rent_A_Car_PR_7_2016.Models
         public int IdKarte { get; set; }
         public Vozilo Vozilo { get; set; }
         public DateTime DatumKadJeSlobodnoVozilo { get; set; }
+        public int BrojDana { get; set; }
         public int CenaPoDanu { get; set; }
         public Korisnik Kupac { get; set; }
-        public StatusRezervacije Status { get; set; }
+        public StatusRezervacije StatusRezervacija { get; set; }
+
+        public double UkupnaCena
+        {
+            get
+            {
+                return this.BrojDana * Vozilo.CenaPoDanu;
+            }
+            set
+            {
+
+            }
+        }
+
 
         public Rezervacija()
         {
-
+            this.BrojDana = 1;
+            this.StatusRezervacija = StatusRezervacije.REZERVISANA;
         }
 
         public Rezervacija(int idKarte, Vozilo vozilo, DateTime datumKadJeSlobodnoVozilo, int cenaPoDanu, Korisnik kupac, StatusRezervacije status)
@@ -26,7 +41,7 @@ namespace Rent_A_Car_PR_7_2016.Models
             DatumKadJeSlobodnoVozilo = datumKadJeSlobodnoVozilo;
             CenaPoDanu = cenaPoDanu;
             Kupac = kupac;
-            Status = status;
+            StatusRezervacija = status;
         }
 
     }

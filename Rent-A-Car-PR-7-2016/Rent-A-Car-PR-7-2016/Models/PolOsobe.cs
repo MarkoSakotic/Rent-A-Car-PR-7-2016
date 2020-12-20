@@ -7,7 +7,7 @@ namespace Rent_A_Car_PR_7_2016.Models
 {
     public enum PolOsobe
     {
-        M,
-        Z
+        MUSKO,
+        ZENSKO
     }
 }

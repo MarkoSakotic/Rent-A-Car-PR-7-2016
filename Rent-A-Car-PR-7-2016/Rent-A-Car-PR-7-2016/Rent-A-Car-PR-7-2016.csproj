@@ -152,10 +152,44 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\avatar2.png" />
+    <Content Include="Images\avatar3.png" />
+    <Content Include="Images\blog_893045772_1591081168.jpg" />
+    <Content Include="Images\car1.jpg" />
+    <Content Include="Images\car2.jpg" />
+    <Content Include="Images\car3.jpg" />
+    <Content Include="Images\car4.jpg" />
+    <Content Include="Images\car5.png" />
+    <Content Include="Images\cars.jpg" />
+    <Content Include="Images\cars1.jpg" />
+    <Content Include="Images\kljucevi.png" />
     <Content Include="Images\pozadina.jpg" />
+    <Content Include="Images\pozadina10.jpg" />
+    <Content Include="Images\pozadina11 %281%29.jpg" />
+    <Content Include="Images\pozadina12.jpg" />
+    <Content Include="Images\pozadina12a.jpg" />
+    <Content Include="Images\pozadina13.png" />
+    <Content Include="Images\pozadina14.jpg" />
+    <Content Include="Images\pozadina15.jpg" />
+    <Content Include="Images\pozadina15a.jpg" />
+    <Content Include="Images\pozadina16.jpg" />
+    <Content Include="Images\pozadina17.jpg" />
+    <Content Include="Images\pozadina17a.jpg" />
+    <Content Include="Images\pozadina18.jpg" />
+    <Content Include="Images\pozadina18a.jpg" />
+    <Content Include="Images\pozadina2.jpg" />
+    <Content Include="Images\pozadina3.jpg" />
+    <Content Include="Images\pozadina4.jpg" />
+    <Content Include="Images\pozadina4a.jpg" />
+    <Content Include="Images\pozadina5.jpg" />
+    <Content Include="Images\pozadina6.jpg" />
+    <Content Include="Images\pozadina7.jpg" />
+    <Content Include="Images\pozadina8.jpg" />
+    <Content Include="Images\pozadina9.jpg" />
     <Content Include="Images\pozadinalogin.jpg" />
+    <Content Include="Images\pozadinalogin1.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Images\pozadina11.webp" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -191,6 +225,7 @@
     <Content Include="Views\Registracija\RegistracijaVlasnika.cshtml" />
     <Content Include="Views\Registracija\ProfilKorisnika.cshtml" />
     <Content Include="Views\Registracija\IzmeniProfilKorisnika.cshtml" />
+    <Content Include="Views\Vozilo\RezervacijaVozila.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

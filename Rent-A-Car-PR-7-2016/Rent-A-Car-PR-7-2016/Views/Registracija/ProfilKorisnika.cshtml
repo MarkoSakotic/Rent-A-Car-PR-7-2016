@@ -5,11 +5,11 @@
     <br />
     <br />
     <br />
-    <table style="background-color:aliceblue; opacity:0.9; border-collapse:separate; border-spacing:0.85em" align="center" class="table-striped" width="480" height="320">
+    <table style="background-color:aliceblue; opacity:0.9; border-collapse:separate; border-spacing:0.85em; border-radius:9px; border-width:1px" align="center" class="table-striped" width="480" height="320">
         @if (Session["Korisnik"] != null)
         {
             Rent_A_Car_PR_7_2016.Models.Korisnik korisnik = (Rent_A_Car_PR_7_2016.Models.Korisnik)Session["Korisnik"];
-            if (korisnik.Pol.Equals(Rent_A_Car_PR_7_2016.Models.PolOsobe.M))
+            if (korisnik.Pol.Equals(Rent_A_Car_PR_7_2016.Models.PolOsobe.MUSKO))
             {
                 <tr>
                     <td colspan="2"><img src="~/Images/avatar.png" alt="Avatar" height="100" width="100" style="margin-left:145pt"></td>
@@ -24,7 +24,7 @@
                 </tr>
             }
         }
-                <caption style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Comic Sans MS', Times, serif; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">Profil korisnika - @ViewBag.korisnik.KorisnickoIme</caption>
+                <caption style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; border-radius:9px; border-width:1px; font-family:'Comic Sans MS', Times, serif; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">Profil korisnika - @ViewBag.korisnik.KorisnickoIme</caption>
                 <tr>
                     <th style="font-family:'Comic Sans MS'">Korisnicko ime</th>
                     <td style="font-family:'Comic Sans MS'">@ViewBag.korisnik.KorisnickoIme</td>

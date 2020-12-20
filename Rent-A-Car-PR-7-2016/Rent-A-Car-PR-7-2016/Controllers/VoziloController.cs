@@ -152,8 +152,6 @@ namespace Rent_A_Car_PR_7_2016.Controllers
             return View("ProfilVozila", Podaci.vozila);
         }
 
-
-
         public ActionResult SearchByMarka(string marka)
         {
             List<Vozilo> vozila = (List<Vozilo>)HttpContext.Application["vozila"];

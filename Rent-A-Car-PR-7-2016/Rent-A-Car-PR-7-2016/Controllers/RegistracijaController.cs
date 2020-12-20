@@ -86,6 +86,19 @@ namespace Rent_A_Car_PR_7_2016.Controllers
                 return View("RegistracijaVlasnika");
             }
 
+            if (korisnik.KorisnickoIme.Length < 3)
+            {
+                ViewBag.Message = "Korisnicko ime mora imati bar 3 karaktera!";
+                return View("Registracija");
+            }
+
+
+            if (korisnik.Loznika.Length < 5)
+            {
+                ViewBag.Message = "Lozinka mora imati bar 5 karaktera!";
+                return View("Registracija");
+            }
+
             korisnici.Add(korisnik);
             Podaci.SaveUser(korisnik);
             Session["korisnik"] = korisnik;
