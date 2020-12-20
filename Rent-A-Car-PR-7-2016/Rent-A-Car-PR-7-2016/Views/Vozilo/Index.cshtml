@@ -8,18 +8,19 @@
 <body background="~/Images/pozadina15a.jpg" style="background-repeat:repeat; background-size:1460px 840px">
 
     <div style="text-align:center; font-family:'Comic Sans MS', Times, serif; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">
-        <h2 style="background-color:aliceblue; height:35px; border-radius:9px; border-width:1px">Dobrodošli na sajt Rent4U - Vojvodina</h2>
+        <h2 style="background-color:aliceblue; height:35px; border-radius:9px; border-width:1px">Dobrodošli na sajt Rent4U - Vojvodina </h2>
+        <img src="~/Images/caricon1.png" style="height:60px; width:60px; margin-left:613px; margin-top:-90px; opacity:0.8" />
     </div>
     <br />
     <br />
     <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="border-radius:9px; width:170px">
-        Kliknite za pretrage
+        Kliknite za pretrage  <img src="~/Images/sarch3.png" height="20" width="20" opacity:0.6"/>
     </button>
     <div class="collapse" id="collapseExample">
         <br />
-        <table class="table table-striped" style="font-family:'Comic Sans MS', Times, serif">
-            <tr>
-                <th>Unesite naziv vozila:</th>
+        <table class="table table-striped" style="font-family:'Comic Sans MS', Times, serif; border-bottom:unset; border-left:unset; border-right:unset">
+            <tr style="border-style:solid; border-color:skyblue; border-radius:12px; border-width:3px; ">
+                <th>&nbsp Unesite naziv vozila:</th>
                 <th>Unesite mesto:</th>
             </tr>
             <tr>
@@ -37,19 +38,19 @@
                 </td>
             </tr>
         </table>
-        <table class="table-striped" style="font-family:'Comic Sans MS', Times, serif">
-            <tr>
-                <th colspan="10">Unesite cenu od:</th>
-                <th colspan="10">Unesite cenu do:</th>
+        <table class="table table-striped" style="font-family:'Comic Sans MS', Times, serif; border-bottom:unset; border-left:unset; border-right:unset">
+            <tr style="border-style:solid; border-color:skyblue;">
+                <th >&nbsp Unesite cenu od:</th>
+                <th >Unesite cenu do:</th>
             </tr>
             <tr>
-                <td colspan="10">
+                <td >
                     <form action="~/Vozilo/SearchByCena">
                         <input type="number" name="cenaod" style="border-radius:9px; border-width:1px" />
                         <input type="submit" class="btn btn-info" value="Pretraga" style="border-radius:9px; width:100px" />
                     </form>
                 </td>
-                <td colspan="10">
+                <td >
                     <form action="~/Vozilo/SearchByCenaDo">
                         <input type="number" name="cenado" style="border-radius:9px; border-width:1px" />
                         <input type="submit" class="btn btn-info" value="Pretraga" style="border-radius:9px; width:100px" />
@@ -58,11 +59,13 @@
             </tr>
         </table>
     </div>
-    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" style="border-radius:9px; width:170px">Kliknite za filtriranje</button>
+    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" style="border-radius:9px; width:170px">Kliknite za filtriranje
+    <img src="~/Images/filter4.png" height="20" width="20" style="transform:rotate(90deg); opacity:0.9" /></button>
     <div class="collapse multi-collapse" id="multiCollapseExample2">
         <br />
         <form action="~/Vozilo/FiltriranjeTipa" method="post">
-            <label style="background-color:aliceblue; width:100px; font-family:'Comic Sans MS', Times, serif;">Tip vozila:</label>
+            <label style="background-color:aliceblue; border-style:solid; border-color:skyblue; border-radius:12px; border-width:3px; width:100px; font-family:'Comic Sans MS', Times, serif;">
+            &nbsp Tip vozila:</label>
             <select name="tip" style="border-radius:9px; border-width:1px">
                 <option value=""></option>
                 <option value="DZIP">DZIP</option>
@@ -74,11 +77,15 @@
             <input type="submit" class="btn btn-info" value="Filtriraj" style="border-radius:9px; width:100px" />
         </form>
     </div>
-    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3" style="border-radius:9px; width:170px">Kliknite za sortiranje</button>
+    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3" style="border-radius:9px; width:170px">
+    Kliknite za sortiranje <img src="~/Images/sort1.png" height="20" width="20" style="opacity:0.6" /></button>
+    <br />
     <br />
     <div class="collapse multi-collapse" id="multiCollapseExample3">
         <form action="/Vozilo/Sortiraj" method="post">
-            <label style="background-color:aliceblue; width:160px; font-family:'Comic Sans MS', Times, serif;">Sortiranje po ceni: </label>
+            <label style="background-color:aliceblue; border-style:solid; border-color:skyblue; border-radius:12px; border-width:3px; width:160px; font-family:'Comic Sans MS', Times, serif;">
+            &nbsp Sortiranje po ceni:
+            </label>
             <select name="tipSortiranja">
                 <option value=""></option>
                 <option value="rastuce">RASTUCE</option>

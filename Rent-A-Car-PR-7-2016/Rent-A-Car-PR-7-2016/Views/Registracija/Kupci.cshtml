@@ -9,16 +9,17 @@
 <br />
 <body background="~/Images/pozadinalogin.jpg" style="background-repeat:no-repeat; background-size:cover">
     <div style="text-align:center; font-family:'Comic Sans MS', Times, serif; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">
-        <h3 style="background-color:aliceblue; height:30px; border-radius:12px; border-width:1px">Registrovani klijenti veb-sajta</h3>
+        <h3 style="background-color:aliceblue; height:30px; border-radius:12px; border-width:1px; opacity:0.9">Svi registrovani korisnici veb-sajta</h3>
+        <img src="~/Images/avatar3.png" style="height:60px; width:60px; margin-left:533px; margin-top:-90px; opacity:0.9" />
     </div>
     <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="border-radius:9px; width:170px">
-        Kliknite za pretrage
+        Kliknite za pretrage <img src="~/Images/sarch3.png" height="20" width="20" opacity:0.6"/>
     </button>
     <div class="collapse" id="collapseExample">
         <br />
         <div>
-            <table class="table-striped" style="font-family:'Comic Sans MS', Times, serif">
-                <tr>
+            <table class="table-striped" style="font-family:'Comic Sans MS', Times, serif;  border-bottom:unset; border-left:unset; border-right:unset">
+                <tr style="border-style:solid; border-color:skyblue;">
                     <th colspan="10">Unesite ime korisnika:</th>
                     <th colspan="10">Unesite prezime korisnika:</th>
                     <th colspan="10">Unesite korisničko ime korisnika:</th>
@@ -48,10 +49,10 @@
     </div>
     <br />
     <br />
-    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" style="border-radius:9px; width:170px">Kliknite za filtriranje</button>
+    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" style="border-radius:9px; width:170px">Kliknite za filtriranje <img src="~/Images/filter4.png" height="20" width="20" style="transform:rotate(90deg); opacity:0.9" /></button>
     <div class="collapse multi-collapse" id="multiCollapseExample2">
         <form action="~/Registracija/Filtriranje" method="post">
-            <label style="background-color:aliceblue; width:60px; font-family:'Comic Sans MS', Times, serif;">Uloga:</label>
+            <label style="background-color:aliceblue; width:60px; font-family:'Comic Sans MS', Times, serif; border-style:solid; border-color:skyblue; border-radius:12px; border-width:3px; width:100px;">&nbsp Uloga: </label>
             <select name="uloga" style="border-radius:9px; border-width:1px">
                 <option value=""></option>
                 <option value="GLAVNI_MENADZER">GLAVNI MENADZER</option>
@@ -75,33 +76,44 @@
             <th colspan="2"> Datum rođenja: </th>
             <th colspan="2"> Uloga: </th>
             <th colspan="2"></th>
+            <th colspan="2"></th>
         </tr>
         @foreach (Korisnik item in Model)
         {
             if (item.Obrisano == false)
             {
-                <tbody>
-                    <tr>
-                        <td colspan="2"> @item.KorisnickoIme </td>
-                        <td colspan="2"> @item.Ime </td>
-                        <td colspan="2"> @item.Prezime </td>
-                        <td colspan="2"> @item.Pol </td>
-                        <td colspan="2"> @item.DatumRodjenja </td>
-                        <td colspan="2"> @item.Uloga </td>
-                        <td colspan="2">
-                            <form action="~/Registracija/ObrisiKorisnika" method="post">
-                                <input type="text" name="korisnickoIme" value="@item.KorisnickoIme" hidden />
-                                <input type="submit" class="btn btn-danger" value="Izbriši korisnika" style="border-radius:9px; width:127px" />
-                            </form>
-                        </td>
-                    </tr>
-                </tbody>
+        <tbody>
+            <tr>
+                <td colspan="2"> @item.KorisnickoIme </td>
+                <td colspan="2"> @item.Ime </td>
+                <td colspan="2"> @item.Prezime </td>
+                <td colspan="2"> @item.Pol </td>
+                <td colspan="2"> @item.DatumRodjenja </td>
+                <td colspan="2"> @item.Uloga </td>
+                <td colspan="2">
+                    @if (@item.Pol == PolOsobe.MUSKO)
+                    {
+                        <img src="~/Images/avatar.png" alt="Avatar" height="35" width="35">
+
+                    }
+                    else
+                    {
+                        <img src="~/Images/avatar2.png" alt="Avatar" height="35" width="35">
+                    }
+                 <td colspan="2">
+                     <form action="~/Registracija/ObrisiKorisnika" method="post">
+                         <input type="text" name="korisnickoIme" value="@item.KorisnickoIme" hidden />
+                         <input type="submit" class="btn btn-danger" value="Izbriši korisnika" style="border-radius:9px; width:127px" />
+                      </form>
+                  </td>
+            </tr>
+        </tbody>
             }
         }
     </table>
-    <h3 style="background-color:aliceblue; font-family:'Comic Sans MS', Times, serif;  opacity:0.7; font-weight:500; color:darkblue; width:255px; height:30px">Registruj menadžera:</h3>
+    <h3 style="background-color:aliceblue; font-family:'Comic Sans MS', Times, serif;  opacity:0.7; font-weight:500; color:darkblue; width:264px; height:35px;  border-style:solid; border-color:skyblue; border-radius:12px; border-width:3px;">&nbsp Registruj menadžera:</h3>
     <form action="~/Registracija/RegisterVlasnika" method="post">
-        <input type="submit" class="btn btn-info" value="Registruj" style="border-radius:9px; width:100px" />
+        <input type="submit" class="btn btn-info" value="Kliknite za registrovanje" style="border-radius:9px; width:165px" />
     </form>
 </body>
 
