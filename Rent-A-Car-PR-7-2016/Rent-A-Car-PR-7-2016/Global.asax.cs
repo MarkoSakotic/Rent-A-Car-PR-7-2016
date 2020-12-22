@@ -24,6 +24,9 @@ namespace Rent_A_Car_PR_7_2016
             List<Vozilo> vozila = Podaci.ReadProducts("~/App_Data/vozila.txt");
             HttpContext.Current.Application["vozila"] = vozila;
 
+            List<Rezervacija> rezervacije = Podaci.ReadRezervacija("~/App_Data/rezervacije.txt");
+            HttpContext.Current.Application["rezervacije"] = rezervacije;
+
         }
     }
 }

@@ -1,0 +1,42 @@
+﻿@using Rent_A_Car_PR_7_2016.Models
+@model IEnumerable<Rezervacija>
+@{
+    ViewBag.Title = "SpisakRezervacija";
+}
+<body background="~/Images/pozadinalogin.jpg" style="background-repeat:repeat; background-size:1460px 840px">
+    <br />
+    <br />
+    <br />
+    <!--Spisak rezervacija vidljiv samo kod klijenta na profilu-->
+    @if (Session["Korisnik"] != null)
+    {
+        Rent_A_Car_PR_7_2016.Models.Korisnik korisnik = (Rent_A_Car_PR_7_2016.Models.Korisnik)Session["Korisnik"];
+        if (korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.KLIJENT))
+        {
+            <table style="background-color:aliceblue; opacity:0.9; border-collapse:separate; border-spacing:0.85em; border-radius:9px; border-width:1px" align="center" class="table-striped" width="480" height="280">
+                <caption style="text-align:center; background-color:aliceblue; border:thin; border-color:aquamarine; border-radius:9px; border-width:1px; font-family:'Comic Sans MS', Times, serif; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">Vaša istorija rezervacija</caption>
+                <tr>
+                    <th colspan="2"> Marka vozila</th>
+                    <th colspan="2"> Model vozila</th>
+                    <th colspan="2"> Datum rezervacije</th>
+                    <th colspan="2"></th>
+                </tr>
+                @foreach (Rezervacija item in Model)
+                {
+                        <tbody>
+
+                            <tr>
+                                <td colspan="2"> @item.IdVozilo </td>
+                                <td colspan="2"> @item.CenaPoDanu </td>
+                                <td colspan="2"> @item.DatumKadJeSlobodnoVozilo </td>
+                                <td colspan="2"> </td>
+                            </tr>
+                        </tbody>
+                    
+                }
+            </table>
+        }
+
+
+    }
+</body>

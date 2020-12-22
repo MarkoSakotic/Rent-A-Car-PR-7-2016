@@ -11,8 +11,10 @@ namespace Rent_A_Car_PR_7_2016.Models
     {
         public static List<Korisnik> korisnici;
         public static List<Vozilo> vozila;
+        public static List<Rezervacija> rezervacije;
         public Korisnik TrenutniKorisnik { get; set; }
         public Vozilo TrenutnaVozilo { get; set; }
+        public Rezervacija TrenutnaRezervacija { get; set; }
 
         public static List<Korisnik> ReadUsers(string path)
         {
@@ -62,7 +64,7 @@ namespace Rent_A_Car_PR_7_2016.Models
             {
                 string[] tokens = line.Split(';');
                 //MestoOdrzavanja mestoodrzavanja = new MestoOdrzavanja(tokens[7], tokens[8], tokens[9], int.Parse(tokens[10]));
-                Vozilo p = new Vozilo(tokens[0], tokens[1], tokens[2], (TipVozila)Enum.Parse(typeof(TipVozila), tokens[3]), int.Parse(tokens[4]), DateTime.Parse(tokens[5]), int.Parse(tokens[6]), bool.Parse(tokens[7]), tokens[8], tokens[9], tokens[10], int.Parse(tokens[11]), tokens[12], bool.Parse(tokens[13]), bool.Parse(tokens[14]));
+                Vozilo p = new Vozilo(int.Parse(tokens[0]), tokens[1], tokens[2], (TipVozila)Enum.Parse(typeof(TipVozila), tokens[3]), int.Parse(tokens[4]), DateTime.Parse(tokens[5]), int.Parse(tokens[6]), bool.Parse(tokens[7]), tokens[8], tokens[9], tokens[10], int.Parse(tokens[11]), tokens[12], bool.Parse(tokens[13]), bool.Parse(tokens[14]));
                 vozila.Add(p);
             }
             sr.Close();
@@ -91,5 +93,44 @@ namespace Rent_A_Car_PR_7_2016.Models
             stream.Close();
         }
 
+
+        public static List<Rezervacija> ReadRezervacija(string path)
+        {
+            rezervacije = new List<Rezervacija>();
+            path = HostingEnvironment.MapPath(path);
+            FileStream stream = new FileStream(path, FileMode.Open);
+            StreamReader sr = new StreamReader(stream);
+            string line = "";
+            while ((line = sr.ReadLine()) != null)
+            {
+                string[] tokens = line.Split(';');
+                //MestoOdrzavanja mestoodrzavanja = new MestoOdrzavanja(tokens[7], tokens[8], tokens[9], int.Parse(tokens[10]));
+                Rezervacija p = new Rezervacija(int.Parse(tokens[0]), int.Parse(tokens[1]), tokens[2],  DateTime.Parse(tokens[3]), int.Parse(tokens[4]));
+      
+                rezervacije.Add(p);
+            }
+            sr.Close();
+            stream.Close();
+            //pozoves neku novu metodu, ta nova metoda izbrojim koliko korisnik ima rezervacija, ako ima vise onda proimeni ulogu u toj novoj metodi save users
+            return rezervacije;
+        }
+        
+        public static void SaveRezervacija(Rezervacija rezervacija)
+        {
+            //ReadProducts("~/App_Data/manifestacije.txt");
+            //manifestacije.Add(manifestacija);
+            string path = HostingEnvironment.MapPath("~/App_Data/rezervacije.txt");
+            FileStream stream = new FileStream(path, FileMode.Create);
+            StreamWriter sw = new StreamWriter(stream);
+            int i = 0;
+            foreach (Rezervacija m in rezervacije)
+            {
+                sw.WriteLine(i + ";" + m.IdVozilo + ";" + m.IdKupac + ";" + m.DatumKadJeSlobodnoVozilo + ";");
+                i++;
+            }
+
+            sw.Close();
+            stream.Close();
+        }
     }
 }

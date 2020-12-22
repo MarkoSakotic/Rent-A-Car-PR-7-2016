@@ -21,6 +21,62 @@ namespace Rent_A_Car_PR_7_2016.Controllers
             return View(vozila);
         }
 
+        public ActionResult SveRezervacije()
+        {
+            //return View();
+            NapraviSesiju();
+
+            //List<Manifestacija> manifestacije = (List<Manifestacija>)HttpContext.Application["manifestacije"];
+            List<Rezervacija> rezervacije = Podaci.rezervacije;
+            List<Rezervacija> pomocneRezervacije = new List<Rezervacija>();
+            foreach (Rezervacija item in rezervacije)
+            {
+                if(item.IdKupac == podaci.TrenutniKorisnik.KorisnickoIme)
+                {
+                    pomocneRezervacije.Add(item);
+                }
+            }
+            return View("SpisakRezervacija", pomocneRezervacije);
+        }
+
+        public ActionResult RezervisiVozilo(SlanjeRezervacije idVozila)
+        {
+            List<Rezervacija> rezervacijeVozilaa = (List<Rezervacija>)HttpContext.Application["Rezervacije"];
+            if (rezervacijeVozilaa == null)
+            {
+                rezervacijeVozilaa = new List<Rezervacija>();
+            }
+
+
+            NapraviSesiju();
+            Rezervacija nova = new Rezervacija();
+            nova.IdKupac = podaci.TrenutniKorisnik.KorisnickoIme;
+            nova.IdVozilo = idVozila.IdVozila;
+            nova.DatumKadJeSlobodnoVozilo = idVozila.DatumRezervacije;
+            foreach (Vozilo item in Podaci.vozila)
+            {
+                //if(item.Id == nova.IdVozilo)
+                //{
+                //    nova.CenaPoDanu = item.CenaPoDanu;
+                //    break;
+                //}
+            }
+
+            rezervacijeVozilaa.Add(nova);
+            Podaci.SaveRezervacija(nova);
+
+            List<Rezervacija> pomocneRezervacije = new List<Rezervacija>();
+            foreach (Rezervacija item in rezervacijeVozilaa)
+            {
+                if (item.IdKupac == podaci.TrenutniKorisnik.KorisnickoIme)
+                {
+                    pomocneRezervacije.Add(item);
+                }
+            }
+
+            return View("SpisakRezervacija", pomocneRezervacije);
+        }
+
         public ActionResult DodajNovoVozilo(Vozilo vozilo)
         {
             List<Vozilo> vozila = (List<Vozilo>)HttpContext.Application["Vozila"];

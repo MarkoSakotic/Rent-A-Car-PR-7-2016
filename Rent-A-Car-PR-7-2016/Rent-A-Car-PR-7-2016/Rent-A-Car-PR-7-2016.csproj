@@ -132,6 +132,7 @@
     <Compile Include="Models\Podaci.cs" />
     <Compile Include="Models\PolOsobe.cs" />
     <Compile Include="Models\Rezervacija.cs" />
+    <Compile Include="Models\SlanjeRezervacije.cs" />
     <Compile Include="Models\StatusRezervacije.cs" />
     <Compile Include="Models\TipVozila.cs" />
     <Compile Include="Models\UlogaKorisnika.cs" />
@@ -140,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\korisnici.txt" />
+    <Content Include="App_Data\rezervacije.txt" />
     <Content Include="App_Data\vozila.txt" />
     <Content Include="avatar.jpg" />
     <Content Include="Images\avatar.png" />
@@ -248,6 +250,7 @@
     <Content Include="Views\Registracija\ProfilKorisnika.cshtml" />
     <Content Include="Views\Registracija\IzmeniProfilKorisnika.cshtml" />
     <Content Include="Views\Vozilo\RezervacijaVozila.cshtml" />
+    <Content Include="Views\Vozilo\SpisakRezervacija.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

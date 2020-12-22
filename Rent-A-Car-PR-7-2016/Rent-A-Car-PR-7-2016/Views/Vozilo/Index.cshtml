@@ -9,7 +9,8 @@
 
     <div style="text-align:center; font-family:'Comic Sans MS', Times, serif; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">
         <h2 style="background-color:aliceblue; height:35px; border-radius:9px; border-width:1px">Dobrodošli na sajt Rent4U - Vojvodina </h2>
-        <img src="~/Images/caricon1.png" style="height:60px; width:60px; margin-left:613px; margin-top:-90px; opacity:0.8" />
+        <img src="~/Images/caricon1.png" style="height:60px; width:60px; margin-left:13px; margin-top:-90px; opacity:0.7" />
+        <img src="~/Images/kljucevi.png" style="height:60px; width:60px; margin-left:-673px; margin-top:-90px; opacity:0.7" />
     </div>
     <br />
     <br />
@@ -118,12 +119,8 @@
             <th colspan="2">Model vozila</th>
             <th colspan="2">Tip vozila</th>
             <th colspan="2">Broj mesta  u vozilu</th>
-            <th colspan="2">Datum kad je vozilo slobodno</th>
             <th colspan="2">Cena po danu [RSD]</th>
-            <th colspan="2">Ulica</th>
-            <th colspan="2">Broj</th>
             <th colspan="2">Grad</th>
-            <th colspan="2">Postanski broj</th>
             <th colspan="2">Poster</th>
             <th colspan="2">Dodaj</th>
         </tr>
@@ -137,20 +134,27 @@
                         <td colspan="2">@item.ModelVozila</td>
                         <td colspan="2">@item.TipVozila</td>
                         <td colspan="2">@item.BrojMestaUVozilu</td>
-                        <td colspan="2">@item.DatumKadJeSlobodnoVozilo</td>
                         <td colspan="2">@item.CenaPoDanu</td>
-                        <td colspan="2">@item.Ulica</td>
-                        <td colspan="2">@item.Broj</td>
                         <td colspan="2">@item.Mesto</td>
-                        <td colspan="2">@item.PostanskiBroj</td>
                         <td colspan="2">@item.Poster</td>
                         <td colspan="2">
                             <form action="~/Vozilo/ProfilVozila" method="post">
                                 <input type="text" name="markaVozila" value="@item.MarkaVozila" hidden />
                                 <input type="submit" class="btn btn-info" value="Profil vozila" style="border-radius:9px; width:100px" />
                             </form>
-
-                        </td>
+                            @if (Session["Korisnik"] != null)
+                            {
+                                Rent_A_Car_PR_7_2016.Models.Korisnik korisnik = (Rent_A_Car_PR_7_2016.Models.Korisnik)Session["Korisnik"];
+                                if (korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.KLIJENT))
+                                {
+                                    <form action="~/Vozilo/RezervisiVozilo" method="post">
+                                        <input type="text" name="IdVozilo" value="@item.Id" hidden />
+                                        <input type="submit" class="btn btn-success" value="Rezerviši" style="border-radius:9px; width:100px" />
+                                        <input type="date"  name="DatumRezervacije" style="border-radius:9px; border-width:1px" />
+                                    </form>
+                                }
+                            }
+                         </td>
                     </tr>
                 </tbody>
             }

@@ -7,13 +7,13 @@ namespace Rent_A_Car_PR_7_2016.Models
 {
     public class Vozilo
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string MarkaVozila { get; set; }
         public string ModelVozila { get; set; }
         public TipVozila TipVozila { get; set; }
         public int BrojMestaUVozilu { get; set; }
         public DateTime DatumKadJeSlobodnoVozilo { get; set; }
-        public int CenaPoDanu { get; set; }
+        public float CenaPoDanu { get; set; }
         public bool Status { get; set; }
         public string Ulica { get; set; }
         public string Broj { get; set; }
@@ -29,7 +29,7 @@ namespace Rent_A_Car_PR_7_2016.Models
             Aktivno = false;
         }
 
-        public Vozilo(string id, string markaVozila, string modelVozila, TipVozila tipVozila, int brojMestaUVozilu, DateTime datumKadJeSlobodnoVozilo, int cenaPoDanu, bool status, string ulica, string broj, string mesto, int postanskiBroj, string poster, bool obrisano, bool aktivno)
+        public Vozilo(int id, string markaVozila, string modelVozila, TipVozila tipVozila, int brojMestaUVozilu, DateTime datumKadJeSlobodnoVozilo, float cenaPoDanu, bool status, string ulica, string broj, string mesto, int postanskiBroj, string poster, bool obrisano, bool aktivno)
         {
             Id = id;
             MarkaVozila = markaVozila;

@@ -7,25 +7,13 @@ namespace Rent_A_Car_PR_7_2016.Models
 {
     public class Rezervacija
     {
-        public int IdKarte { get; set; }
-        public Vozilo Vozilo { get; set; }
+        public int IdRezervacije { get; set; }
+        public int IdVozilo { get; set; }
         public DateTime DatumKadJeSlobodnoVozilo { get; set; }
         public int BrojDana { get; set; }
-        public int CenaPoDanu { get; set; }
-        public Korisnik Kupac { get; set; }
+        public float CenaPoDanu { get; set; }
+        public string  IdKupac { get; set; }
         public StatusRezervacije StatusRezervacija { get; set; }
-
-        public double UkupnaCena
-        {
-            get
-            {
-                return this.BrojDana * Vozilo.CenaPoDanu;
-            }
-            set
-            {
-
-            }
-        }
 
 
         public Rezervacija()
@@ -33,14 +21,28 @@ namespace Rent_A_Car_PR_7_2016.Models
             this.BrojDana = 1;
             this.StatusRezervacija = StatusRezervacije.REZERVISANA;
         }
-
-        public Rezervacija(int idKarte, Vozilo vozilo, DateTime datumKadJeSlobodnoVozilo, int cenaPoDanu, Korisnik kupac, StatusRezervacije status)
+        public Rezervacija(int idRezervacije, int idvozilo)
         {
-            IdKarte = IdKarte;
-            Vozilo = vozilo;
+            IdRezervacije = idRezervacije;
+            IdVozilo = idvozilo;
+        }
+
+        public Rezervacija(int idRezervacije, int idvozilo, string idkupac, DateTime datumKadJeSlobodnoVozilo, float cenaPoDanu)
+        {
+            IdRezervacije = idRezervacije;
+            IdVozilo = idvozilo;
+            IdKupac = idkupac;
             DatumKadJeSlobodnoVozilo = datumKadJeSlobodnoVozilo;
             CenaPoDanu = cenaPoDanu;
-            Kupac = kupac;
+        }
+
+        public Rezervacija(int idRezervacije, int idvozilo, DateTime datumKadJeSlobodnoVozilo, int cenaPoDanu, string idkupac, StatusRezervacije status)
+        {
+            IdRezervacije = idRezervacije;
+            IdVozilo = idvozilo;
+            DatumKadJeSlobodnoVozilo = datumKadJeSlobodnoVozilo;
+            CenaPoDanu = cenaPoDanu;
+            IdKupac = idkupac;
             StatusRezervacija = status;
         }
 
