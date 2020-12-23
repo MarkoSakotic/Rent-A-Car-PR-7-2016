@@ -105,14 +105,35 @@ namespace Rent_A_Car_PR_7_2016.Models
             {
                 string[] tokens = line.Split(';');
                 //MestoOdrzavanja mestoodrzavanja = new MestoOdrzavanja(tokens[7], tokens[8], tokens[9], int.Parse(tokens[10]));
-                Rezervacija p = new Rezervacija(int.Parse(tokens[0]), int.Parse(tokens[1]), tokens[2],  DateTime.Parse(tokens[3]), int.Parse(tokens[4]));
+                Rezervacija p = new Rezervacija(int.Parse(tokens[0]), int.Parse(tokens[1]), tokens[2], DateTime.Parse(tokens[3]), int.Parse(tokens[4]), tokens[5], tokens[6]);
       
                 rezervacije.Add(p);
             }
             sr.Close();
             stream.Close();
             //pozoves neku novu metodu, ta nova metoda izbrojim koliko korisnik ima rezervacija, ako ima vise onda proimeni ulogu u toj novoj metodi save users
+            foreach (Korisnik item in korisnici)
+            {
+                if(IzbrojRezervacije(item.KorisnickoIme)>2)
+                {
+                    item.Uloga = UlogaKorisnika.POWER_KLIJENT;
+                    SaveUser(item);
+                }
+            }
             return rezervacije;
+        }
+
+        public static int IzbrojRezervacije(string korisnIme)
+        {
+            int i = 0;
+            foreach (Rezervacija item in rezervacije)
+            {
+                if(item.IdKupac == korisnIme)
+                {
+                    i++;
+                }
+            }
+            return i;
         }
         
         public static void SaveRezervacija(Rezervacija rezervacija)
@@ -125,7 +146,7 @@ namespace Rent_A_Car_PR_7_2016.Models
             int i = 0;
             foreach (Rezervacija m in rezervacije)
             {
-                sw.WriteLine(i + ";" + m.IdVozilo + ";" + m.IdKupac + ";" + m.DatumKadJeSlobodnoVozilo + ";");
+                sw.WriteLine(i + ";" + m.IdVozilo + ";" + m.IdKupac + ";" + m.DatumKadJeSlobodnoVozilo + ";" + m.CenaPoDanu + ";" + m.MarkaVozila + ";" + m.ModelVozila + ";");
                 i++;
             }
 

@@ -1,8 +1,10 @@
-﻿@{
+﻿﻿@using Rent_A_Car_PR_7_2016.Models
+@model IEnumerable<Vozilo>
+@{
     ViewBag.Title = "ProfilVozila";
 }
 
-<body background="~/Images/pozadina15a.jpg" style="background-repeat:no-repeat; background-size:cover">
+<body background="~/Images/pozadina15a.jpg" style="background-repeat:repeat; background-size:1460px 840px">
 
     <br />
     <br />
@@ -10,6 +12,10 @@
 
     <table style="background-color:aliceblue; border-radius:9px; border-width:1px; opacity:0.9; border-collapse:separate; border-spacing:0.85em; font-family:'Comic Sans MS'" align="center" class="table-striped" width="600" height="370">
         <caption style="text-align:center; border-radius:9px; border-width:1px; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Comic Sans MS', Times, serif; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">Profil vozila - @ViewBag.vozilo.MarkaVozila @ViewBag.vozilo.ModelVozila</caption>
+        <tr>
+            <th>Id vozila</th>
+            <td>@ViewBag.vozilo.Id</td>
+        </tr>
         <tr>
             <th>Marka vozila</th>
             <td>@ViewBag.vozilo.MarkaVozila</td>
@@ -80,9 +86,13 @@
                 {
                     <th>Rezerviši vozilo</th>
                     <td>
-                        <form action="~/Vozilo/Rezervisi" method="post">
-                            <input type="text" name="markaVozila" value="@ViewBag.vozilo.MarkaVozila" hidden />
-                            <input type="submit" class="btn btn-info" value="Rezerviši" style="border-radius:9px; width:100px" />
+                        <form action="~/Vozilo/RezervisiVozilo" method="post">
+                            <label style="font-weight:100">Unesite datum vaše rezervacije:</label>
+                            <br />
+                            <input type="date" name="DatumRezervacije" style="border-radius:9px; border-width:1px" />
+                            <input type="text" name="IdVozilo" value="@ViewBag.vozilo.Id" hidden />
+                            <input type="submit" class="btn btn-success" value="Rezerviši" style="border-radius:9px; width:100px" />
+                            <br />
                         </form>
                     </td>
                 }

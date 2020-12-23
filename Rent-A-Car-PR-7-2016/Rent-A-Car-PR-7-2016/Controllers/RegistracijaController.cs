@@ -166,7 +166,7 @@ namespace Rent_A_Car_PR_7_2016.Controllers
 
             foreach (Korisnik item in korisnici)
             {
-                if (item.Uloga.Equals(UlogaKorisnika.KLIJENT) || item.Uloga.Equals(UlogaKorisnika.MENADZER))
+                if (item.Uloga.Equals(UlogaKorisnika.KLIJENT) || item.Uloga.Equals(UlogaKorisnika.MENADZER) || item.Uloga.Equals(UlogaKorisnika.POWER_KLIJENT))
                 {
                     kupci.Add(item);
                 }

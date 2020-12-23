@@ -13,6 +13,8 @@ namespace Rent_A_Car_PR_7_2016.Models
         public int BrojDana { get; set; }
         public float CenaPoDanu { get; set; }
         public string  IdKupac { get; set; }
+        public string MarkaVozila { get; set; }
+        public string ModelVozila { get; set; }
         public StatusRezervacije StatusRezervacija { get; set; }
 
 
@@ -27,13 +29,15 @@ namespace Rent_A_Car_PR_7_2016.Models
             IdVozilo = idvozilo;
         }
 
-        public Rezervacija(int idRezervacije, int idvozilo, string idkupac, DateTime datumKadJeSlobodnoVozilo, float cenaPoDanu)
+        public Rezervacija(int idRezervacije, int idvozilo, string idkupac, DateTime datumKadJeSlobodnoVozilo, float cenaPoDanu, string markaVozila, string modelVozila)
         {
             IdRezervacije = idRezervacije;
             IdVozilo = idvozilo;
             IdKupac = idkupac;
             DatumKadJeSlobodnoVozilo = datumKadJeSlobodnoVozilo;
             CenaPoDanu = cenaPoDanu;
+            MarkaVozila = markaVozila;
+            ModelVozila = modelVozila;
         }
 
         public Rezervacija(int idRezervacije, int idvozilo, DateTime datumKadJeSlobodnoVozilo, int cenaPoDanu, string idkupac, StatusRezervacije status)

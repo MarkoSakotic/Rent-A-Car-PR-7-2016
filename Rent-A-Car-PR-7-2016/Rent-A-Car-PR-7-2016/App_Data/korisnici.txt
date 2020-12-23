@@ -1,8 +1,8 @@
 admin;admin;Petar;Petrovic;MUSKO;1.1.0001. 00:00:00;GLAVNI_MENADZER;False;
 pera;peraa;Pera;Peric;MUSKO;19.8.1999. 00:00:00;KLIJENT;True;
 mila;milla;Milica;Milicic;ZENSKO;23.11.1994. 00:00:00;KLIJENT;True;
-perapera;perra;Pera;Peric;MUSKO;1.1.0001. 00:00:00;KLIJENT;False;
-anna;annna;Ana;Ancic;MUSKO;9.2.2000. 00:00:00;KLIJENT;False;
+perapera;perra;Pera;Peric;MUSKO;1.1.0001. 00:00:00;POWER_KLIJENT;False;
+anna;annna;Ana;Ancic;MUSKO;9.2.2000. 00:00:00;POWER_KLIJENT;False;
 abc;abccc;Milan;Milanic;MUSKO;1.1.0001. 00:00:00;MENADZER;True;
 adm;admin;Lena;Lenic;MUSKO;11.11.1999. 00:00:00;MENADZER;True;
 sanja;sanja;Sanja;Sanjic;MUSKO;5.4.1995. 00:00:00;MENADZER;True;

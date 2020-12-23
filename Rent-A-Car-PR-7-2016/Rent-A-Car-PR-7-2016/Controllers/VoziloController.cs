@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace Rent_A_Car_PR_7_2016.Controllers
 {
@@ -51,15 +52,23 @@ namespace Rent_A_Car_PR_7_2016.Controllers
             NapraviSesiju();
             Rezervacija nova = new Rezervacija();
             nova.IdKupac = podaci.TrenutniKorisnik.KorisnickoIme;
-            nova.IdVozilo = idVozila.IdVozila;
+            nova.IdVozilo = podaci.TrenutnaVozilo.Id;
             nova.DatumKadJeSlobodnoVozilo = idVozila.DatumRezervacije;
             foreach (Vozilo item in Podaci.vozila)
             {
-                //if(item.Id == nova.IdVozilo)
-                //{
-                //    nova.CenaPoDanu = item.CenaPoDanu;
-                //    break;
-                //}
+                if(item.Id == nova.IdVozilo)
+                {
+                    nova.CenaPoDanu = item.CenaPoDanu;
+                    nova.MarkaVozila = item.MarkaVozila;
+                    nova.ModelVozila = item.ModelVozila;
+                    break;
+                }
+            }
+
+            if (idVozila.DatumRezervacije == DateTime.MinValue)
+            {
+                ViewBag.Message = "Molimo Vas popunite oba polja!";
+                return RedirectToAction("ProfilVozila", "Vozilo", new { id = idVozila.IdVozila });
             }
 
             rezervacijeVozilaa.Add(nova);
@@ -117,7 +126,7 @@ namespace Rent_A_Car_PR_7_2016.Controllers
 
                 }
             }
-
+            podaci.TrenutnaVozilo = ViewBag.vozilo;
             return View("ProfilVozila");
         }
 

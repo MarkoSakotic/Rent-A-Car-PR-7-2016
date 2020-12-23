@@ -9,6 +9,7 @@ namespace Rent_A_Car_PR_7_2016.Models
     {
         GLAVNI_MENADZER,
         MENADZER,
-        KLIJENT
+        KLIJENT,
+        POWER_KLIJENT
     }
 }

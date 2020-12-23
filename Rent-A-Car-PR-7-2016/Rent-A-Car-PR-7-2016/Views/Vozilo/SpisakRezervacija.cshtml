@@ -19,6 +19,7 @@
                     <th colspan="2"> Marka vozila</th>
                     <th colspan="2"> Model vozila</th>
                     <th colspan="2"> Datum rezervacije</th>
+                    <th colspan="2"> Cena [RSD]</th>
                     <th colspan="2"></th>
                 </tr>
                 @foreach (Rezervacija item in Model)
@@ -26,9 +27,10 @@
                         <tbody>
 
                             <tr>
-                                <td colspan="2"> @item.IdVozilo </td>
-                                <td colspan="2"> @item.CenaPoDanu </td>
+                                <td colspan="2"> @item.MarkaVozila </td>
+                                <td colspan="2"> @item.ModelVozila </td>
                                 <td colspan="2"> @item.DatumKadJeSlobodnoVozilo </td>
+                                <td colspan="2"> @item.CenaPoDanu </td>
                                 <td colspan="2"> </td>
                             </tr>
                         </tbody>
