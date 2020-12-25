@@ -21,7 +21,7 @@
         <br />
         <table class="table table-striped" style="font-family:'Comic Sans MS', Times, serif; border-bottom:unset; border-left:unset; border-right:unset">
             <tr style="border-style:solid; border-color:skyblue; border-radius:12px; border-width:3px; ">
-                <th>&nbsp Unesite naziv vozila:</th>
+                <th>&nbsp Unesite marku vozila:</th>
                 <th>Unesite mesto:</th>
             </tr>
             <tr>
@@ -119,10 +119,13 @@
             <th colspan="2">Model vozila</th>
             <th colspan="2">Tip vozila</th>
             <th colspan="2">Broj mesta  u vozilu</th>
-            <th colspan="2">Cena po danu [RSD]</th>
+            <th colspan="2">Cena po danu [RSD] </th>
+            
             <th colspan="2">Grad</th>
-            <th colspan="2">Poster</th>
-            <th colspan="2">Dodaj</th>
+            @if (Session["Korisnik"] != null)
+            {
+                <th colspan="2">Profil</th>
+            }
         </tr>
         @foreach (Vozilo item in Model)
         {
@@ -134,15 +137,17 @@
                         <td colspan="2">@item.ModelVozila</td>
                         <td colspan="2">@item.TipVozila</td>
                         <td colspan="2">@item.BrojMestaUVozilu</td>
-                        <td colspan="2">@item.CenaPoDanu</td>
+                        <td colspan="2">@item.CenaPoDanu</td> 
                         <td colspan="2">@item.Mesto</td>
-                        <td colspan="2">@item.Poster</td>
-                        <td colspan="2">
-                            <form action="~/Vozilo/ProfilVozila" method="post">
-                                <input type="text" name="markaVozila" value="@item.MarkaVozila" hidden />
-                                <input type="submit" class="btn btn-info" value="Profil vozila" style="border-radius:9px; width:100px" />
-                            </form>
-                         </td>
+                        @if (Session["Korisnik"] != null)
+                        {
+                            <td colspan="2">
+                                <form action="~/Vozilo/ProfilVozila" method="post">
+                                    <input type="text" name="markaVozila" value="@item.MarkaVozila" hidden />
+                                    <input type="submit" class="btn btn-info" value="Profil vozila" style="border-radius:9px; width:100px" />
+                                </form>
+                            </td>
+                        }
                     </tr>
                 </tbody>
             }
@@ -160,6 +165,7 @@
         if (korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.GLAVNI_MENADZER))
         {
             <table class="table table-striped" style="background-color:aliceblue; opacity:0.9; border-collapse:separate; border-spacing:0.85em; font-family:'Comic Sans MS', Times, serif; border-radius:12px; border-width:1px">
+                <caption style="text-align:center; border-radius:9px; border-width:1px; background-color:aliceblue; border:thin; border-color:aquamarine; font-family:'Comic Sans MS', Times, serif; font-style:italic; opacity:0.8; font-weight:500; color:darkblue; font-size:19pt">Tabela neaktivnih vozila</caption>
                 <tr>
                     <th colspan="2">Marka vozila</th>
                     <th colspan="2">Model vozila</th>
@@ -212,7 +218,7 @@
                 }
             </table>
         }
-    }
+    }ист
 
 
 </body>

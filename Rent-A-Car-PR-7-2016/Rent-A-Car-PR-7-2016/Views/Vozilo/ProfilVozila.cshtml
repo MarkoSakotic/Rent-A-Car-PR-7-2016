@@ -33,16 +33,8 @@
             <td>@ViewBag.vozilo.BrojMestaUVozilu</td>
         </tr>
         <tr>
-            <th>Datum kad je slobodno vozilo</th>
-            <td>@ViewBag.vozilo.DatumKadJeSlobodnoVozilo.ToString()</td>
-        </tr>
-        <tr>
             <th>Cena po danu</th>
             <td>@ViewBag.vozilo.CenaPoDanu</td>
-        </tr>
-        <tr>
-            <th>Status</th>
-            <td>@ViewBag.vozilo.Status.ToString()</td>
         </tr>
         <tr>
             <th>Ulica</th>
@@ -64,17 +56,32 @@
             <th>Poster</th>
             <td>@ViewBag.vozilo.Poster</td>
         </tr>
+        @if (Session["Korisnik"] != null)
+        {
+            Rent_A_Car_PR_7_2016.Models.Korisnik korisnik = (Rent_A_Car_PR_7_2016.Models.Korisnik)Session["Korisnik"];
+            if (korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.KLIJENT) || korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.POWER_KLIJENT))
+            {
+                <tr>
+                    <th>Zelite popust?</th>
+                    <td>Napravite bar 3 rezervacije i ostvaricete popust za sledece!</td>
+                </tr>
+            }
+        }
         <tr>
             @if (Session["Korisnik"] != null)
             {
                 Rent_A_Car_PR_7_2016.Models.Korisnik korisnik = (Rent_A_Car_PR_7_2016.Models.Korisnik)Session["Korisnik"];
                 if (korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.MENADZER) || korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.GLAVNI_MENADZER))
                 {
-                    <th>Izmeni informacije</th>
+                    <th>Izmeni informacije i/ili izbrisi vozilo</th>
                     <td>
                         <form action="~/Vozilo/IzmeniVozilo" method="post">
                             <input type="text" name="markaVozila" value="@ViewBag.vozilo.MarkaVozila" hidden />
                             <input type="submit" class="btn btn-info" value="Izmeni" style="border-radius:9px; width:100px" />
+                        </form>
+                        <form action="~/Vozilo/ObrisiVozilo" method="post">
+                            <input type="text" name="markaVozil" value="@ViewBag.vozilo.MarkaVozila" hidden />
+                            <input type="submit" class="btn btn-danger" value="Izbrisi" style="border-radius:9px; width:100px" />
                         </form>
                     </td>
                 }
@@ -82,7 +89,7 @@
             @if (Session["Korisnik"] != null)
             {
                 Rent_A_Car_PR_7_2016.Models.Korisnik korisnik = (Rent_A_Car_PR_7_2016.Models.Korisnik)Session["Korisnik"];
-                if (korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.KLIJENT))
+                if (korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.KLIJENT) || korisnik.Uloga.Equals(Rent_A_Car_PR_7_2016.Models.UlogaKorisnika.POWER_KLIJENT))
                 {
                     <th>Rezerviši vozilo</th>
                     <td>
@@ -99,7 +106,9 @@
             }
         </tr>
     </table>
-
+    <div style="margin-left:380px; font-family:'Comic Sans MS'; background-color:lightcoral; width:427px; font-size:16px">
+        @ViewBag.Message
+    </div>
 </body>
 
 

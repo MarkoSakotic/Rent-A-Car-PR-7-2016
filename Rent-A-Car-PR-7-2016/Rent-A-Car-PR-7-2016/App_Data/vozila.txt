@@ -1,6 +1,12 @@
-0;FIAT;PUNTO;STANDARD_GRADSKI;225;1.1.0001. 00:00:00;350;False;Zmaj Jovina;10;Novi Sad;21000;Poster;False;True;
-1;CITROEN;C3;STANDARD_GRADSKI;85;12.10.2020. 18:30:00;850;True;Pozorišni trg;1;Novi Sad;21000;Poster;False;True;
-2;BMW;X6;DZIP;85;2.11.2020. 20:00:00;900;True;Pozorišni trg;1;Novi Sad;21000;Poster;False;True;
-3;FORD;FOCUS;KARAVAN;105;1.1.0001. 00:00:00;1200;True;Stujeskaa;2;Novi Sad;21000;Poster;False;True;
-4;VW;CADADY;KOMBI;85;14.11.2020. 19:00:00;1600;True;Pozorišni trg;1;Novi Sad;21000;Poster;False;False;
-5;PEUGEOT;206;STANDARD_GRADSKI;5;2.2.2020. 00:00:00;1000;True;Mose Pijade;106;Novi Sad;21000;poster;False;False;
+0;Fiat;PUNTO;STANDARD_GRADSKI;4;1.1.0001. 00:00:00;2100;False;Zmaj Jovina;10;Novi Sad;21000;Poster;False;True;
+1;Citroen;C3;STANDARD_GRADSKI;5;12.10.2020. 18:30:00;2500;True;Kralja Petra I;28;Backa Palanka;21400;Poster;False;True;
+2;BMW;X6;DZIP;4;1.1.0001. 00:00:00;4400;True;Pozorišni trg;18;Novi Sad;21000;Poster;False;True;
+3;Ford;FOCUS;KARAVAN;5;1.1.0001. 00:00:00;3000;True;Petra Preradovica;52;Sremska Mitrovica;22000;Poster;False;True;
+4;VW;CADDY;KOMBI;5;14.11.2020. 19:00:00;3600;True;Glavna;108;Ruma;22400;Poster;False;False;
+5;Peugeot;206;STANDARD_GRADSKI;5;2.2.2020. 00:00:00;2700;True;Mose Pijade;106;Novi Sad;21000;poster;False;False;
+6;VW;CADDY;KOMBI;2;14.11.2020. 19:00:00;2900;True;Vojvodjanska;88;Sremski Karlovci;21205;Poster;False;True;
+7;Ford;CUGA;DZIP;5;14.11.2020. 19:00:00;4700;True;Strosmajerova;12;Subotica;24000;Poster;False;True;
+8;Honda;CIVIC;STANDARD_GRADSKI;5;14.11.2020. 19:00:00;2750;True;Zeleznicka;102;Odzaci;25250;Poster;False;True;
+9;Audi;A6;STANDARD_GRADSKI;5;14.11.2020. 19:00:00;3750;True;Suboticeva;43;Zrenjanin;23000;Poster;False;True;
+10;Citroen;XSARA;DZIP;5;14.11.2020. 19:00:00;3100;True;Milosa Obrenovica;38;Pancevo;26000;Poster;False;True;
+11;Fiat;DUCATO;KOMBI;6;14.11.2020. 19:00:00;3100;True;Brace Ribnikar;4;Novi Sad;21000;Poster;False;True;

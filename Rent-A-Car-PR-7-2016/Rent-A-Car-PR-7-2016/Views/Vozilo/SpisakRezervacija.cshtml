@@ -18,8 +18,9 @@
                 <tr>
                     <th colspan="2"> Marka vozila</th>
                     <th colspan="2"> Model vozila</th>
-                    <th colspan="2"> Datum rezervacije</th>
+                    <th colspan="2"> Datum za koji se rezervise</th>
                     <th colspan="2"> Cena [RSD]</th>
+                    <th colspan="2"> Obrisi rezervaciju</th>
                     <th colspan="2"></th>
                 </tr>
                 @foreach (Rezervacija item in Model)
@@ -31,7 +32,12 @@
                                 <td colspan="2"> @item.ModelVozila </td>
                                 <td colspan="2"> @item.DatumKadJeSlobodnoVozilo </td>
                                 <td colspan="2"> @item.CenaPoDanu </td>
-                                <td colspan="2"> </td>
+                                <td colspan="2">
+                                    <form action="~/Vozilo/ObrisiRezervaciju" method="post">
+                                        <input type="text" name="markaVozila" value="@item.MarkaVozila" hidden />
+                                        <input type="submit" class="btn btn-danger" value="Izbriši rezervaciju" style="border-radius:9px; width:127px" />
+                                    </form>
+                                </td>
                             </tr>
                         </tbody>
                     

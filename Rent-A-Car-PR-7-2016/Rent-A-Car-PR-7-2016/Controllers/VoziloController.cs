@@ -67,8 +67,7 @@ namespace Rent_A_Car_PR_7_2016.Controllers
 
             if (idVozila.DatumRezervacije == DateTime.MinValue)
             {
-                ViewBag.Message = "Molimo Vas popunite oba polja!";
-                return RedirectToAction("ProfilVozila", "Vozilo", new { id = idVozila.IdVozila });
+                ViewBag.Message = $"Morate uneti datum da biste rezervisali vozilo!";
             }
 
             rezervacijeVozilaa.Add(nova);
@@ -85,6 +84,8 @@ namespace Rent_A_Car_PR_7_2016.Controllers
 
             return View("SpisakRezervacija", pomocneRezervacije);
         }
+
+        
 
         public ActionResult DodajNovoVozilo(Vozilo vozilo)
         {
